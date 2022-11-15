@@ -44,8 +44,13 @@ public class Esercizi {
 			break;
 			case 9: eserc.menuVet();
 			break;
-			case 10: String[] nomi= eserc.inizVetString(eserc.leggiNumero("Scegli quanti nomi vuoi inserire"));
-					 eserc.trovaRalph(nomi, "ralph");
+			case 10:String sceltaNome = eserc.leggiStringa("Scegli il nome da cercare");
+				  	int occorrenza = eserc.trovaNome( eserc.inizVetString(eserc.leggiNumero("Scegli quanti nomi vuoi inserire")), sceltaNome);
+					eserc.stampaInfo("Il nominativo " + sceltaNome + " e' stato trovato "+ occorrenza + " volte.");
+			break;
+			case 11:eserc.contaConsVoc(eserc.leggiStringa("scrivi una frase").replaceAll("\\s","")); // \\s significa carattere vuoto, "" dice di eliminarlo
+			break;
+			case 12:eserc.palindromo(eserc.leggiStringa("scegli una parola"));
 			break;
 			case 0: System.out.println("ARRIVEDERCI");
 			 		flag = false;

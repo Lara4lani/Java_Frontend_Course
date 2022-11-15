@@ -43,11 +43,33 @@ public class Lab {
 
 	public int leggiNumero(String s)
 	{
-
-		System.out.println(s);
-		return input.nextInt();
-
-
+		int num=0;
+		boolean flag;
+		do
+		{
+			flag= false;
+			System.out.println(s);
+			try 
+			{
+				num= Integer.parseInt(input.nextLine());
+			} 
+			catch (NumberFormatException e)
+			{
+				//System.out.println(e);
+				System.out.println("non hai inserito un numero");
+				flag=true;
+			}
+			catch(Exception e)
+			{
+				
+			}
+			finally //eseguito sia in caso di eccezione sia no. opzionale.
+			{
+				
+			}
+		}while(flag);
+	
+		return num;
 	}
 
 	public void somma (int num1, int num2)
@@ -76,7 +98,7 @@ public class Lab {
 	public String leggiStringa(String s)
 	{
 		System.out.println(s);
-		return input.next();
+		return input.nextLine();
 	}
 
 	public void semaforo(String colore)
@@ -241,17 +263,66 @@ public class Lab {
 		return array;
 	}
 	
-	public void trovaRalph(String[] array, String parola)
+	public int trovaNome(String[] array, String parola)
 	{
 		int count = 0;
 		for(int i=0; i<array.length; i++)
 		{
-			if(array[i].equals(parola))
+			if(array[i].equalsIgnoreCase(parola))
 			{
 				count++;
 			}
 		}
-		System.out.println("Il nome Ralph appare "+ count + " volte.");
+			return count;
+	}
+	
+	public void contaConsVoc(String s)
+	{
+		int countA =0;
+		int countE =0;
+		int countI =0;
+		int countO =0;
+		int countU =0;
+		int cons = 0;
+		
+		for(int i=0; i<s.length(); i++)
+		{
+			if (s.charAt(i) == 'a')
+			{
+				countA++;
+			}
+			else if(s.charAt(i) == 'e')
+			{
+				countE++;
+			}
+			else if(s.charAt(i) == 'i')
+			{
+				countI++;
+			}
+			else if(s.charAt(i) == 'o')
+			{
+				countO++;
+			}
+			else if(s.charAt(i) == 'u')
+			{
+				countU++;
+			}
+			else
+			{
+				cons++;
+			}
+		}
+		System.out.println("a: "+countA);
+		System.out.println("e: "+countE);
+		System.out.println("i: "+countI);
+		System.out.println("o: "+countO);
+		System.out.println("u: "+countU);
+		System.out.println("consonanti: "+cons);
+	}
+	
+	//public palindromo(String s)
+	{
+		
 	}
 	
 	public int menu()
@@ -267,9 +338,10 @@ public class Lab {
 		System.out.println("8) array");
 		System.out.println("9) menu vettori");
 		System.out.println("10) trova ralph");
+		System.out.println("11) conta lettere");
+		System.out.println("12) palindromo?");
 		System.out.println("0) fine programma");
-		int scelta=leggiNumero("fai una scelta");
-		return scelta;
+		return leggiNumero("fai una scelta");
 	}
 
 
