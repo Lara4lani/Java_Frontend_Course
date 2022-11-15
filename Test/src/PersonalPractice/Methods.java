@@ -29,26 +29,7 @@ public class Methods {
     	return input.nextInt();
     }
     
-    public void massimoMinimo() 
-    {
-    	int numeri = 0;
-    	String scelta;
-    	int max=numeri;
-		int min=numeri;
-    	
-    	do
-    	{
-    		numeri=scegliNumero("scegli un numero");
-    		System.out.println("vuoi continuare? y o n");
-    		scelta=input.next();
-    		if(numeri<min)
-    		{
-    			min=numeri;
-    		}
-    	
-    	}while(scelta.equals("y"));
-    	System.out.println("Il valore massimo e' " + max + " e il valore minimo e' " + min);
-    }
+
 
 	
 }

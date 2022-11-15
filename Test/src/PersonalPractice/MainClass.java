@@ -10,7 +10,7 @@ public class MainClass {
 		
 		//pers.Triangle(7);
 		
-		pers.massimoMinimo();
+
 		
 
 	}

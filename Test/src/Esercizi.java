@@ -40,6 +40,13 @@ public class Esercizi {
 			break;
 			case 7: eserc.minMax();
 			break;
+			case 8: eserc.array();
+			break;
+			case 9: eserc.menuVet();
+			break;
+			case 10: String[] nomi= eserc.inizVetString(eserc.leggiNumero("Scegli quanti nomi vuoi inserire"));
+					 eserc.trovaRalph(nomi, "ralph");
+			break;
 			case 0: System.out.println("ARRIVEDERCI");
 			 		flag = false;
 			 break;

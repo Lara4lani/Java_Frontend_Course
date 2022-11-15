@@ -5,9 +5,6 @@ public class Lab {
 	//attributo, variabile globale. Tutti i metodi possono accedervi.
 	Scanner input = new Scanner(System.in);
 
-	//stampare in console in verticale i valori da 1-10
-	//definire (dichiarare) un metodo
-
 	public void contatoreVerticale()
 	{
 		for (int i = 1; i <= 10 ; i++) 
@@ -131,7 +128,132 @@ public class Lab {
 		System.out.println("il valore massimo e' " + max + " il valore minimo e' " + min );
 
 	}
+	
+	public void array()
+	{
+		int[] array = new int[leggiNumero("Scegli quanti valori inserire")];
+		for(int i=0; i<array.length; i++)
+		{
+			array[i]=leggiNumero("inserisci il " + (i+1) + " numero.");
+			//i= indice dell'array, da 0 fino all'ultimo cassetto.
+		}
 
+		System.out.println("i numeri inseriti sono:");
+		
+		for(int i=0; i<array.length; i++)
+		{
+			System.out.println(array[i]);
+		}
+	}
+	
+	public int[] inizVet(int celle)
+	{
+		int[] array = new int[celle];
+		for(int i=0; i<array.length; i++)
+		{
+			array[i]=leggiNumero("inserisci il " + (i+1) + " numero.");
+		}
+		return array;
+	}
+	
+	public void menuVet()
+	{
+		System.out.println("1) somma numeri pari");
+		System.out.println("2) trova valore massimo");
+		System.out.println("3) media dei numeri pari");
+		int scelta = leggiNumero("scegli");
+		
+		if(scelta==1)
+		{
+			int[] vet = inizVet(leggiNumero("scegli quanti numeri inserire"));
+			int somma = sommaPari(vet);
+			stampaInfo("La somma dei numeri pari inseriti e' " + somma);
+		}
+		else if(scelta==2)
+		{
+			int[] vet = inizVet(leggiNumero("scegli quanti numeri inserire"));
+			int max = trovaMax(vet);
+			stampaInfo("Tra i numeri inseriti il valore massimo e' " + max);
+		}
+		else if(scelta==3)
+		{
+			int[] vet = inizVet(leggiNumero("scegli quanti numeri inserire"));
+			 double media = mediaPari(vet);
+			 stampaInfo("La media dei numeri pari inseriti e' " + media);
+		}
+	}
+
+	public int sommaPari(int vet[])
+	{
+		int somma=0;
+		for(int i=0; i<vet.length; i++)
+		{
+			if(vet[i]%2==0)
+			{
+				somma+= vet[i];
+			}
+		}
+		return somma;
+	}
+	
+	public int trovaMax(int vet[])
+	{
+		int max = vet[0]; //il valore nel primo cassetto e' il massimo
+		for(int i=1; i<vet.length; i++)
+		{
+			if(vet[i]>max)
+			{
+				max = vet[i]; //se i valori dal 2 cassetto in poi sono maggiori del primo allora sono il massimo loro
+			}
+		}
+		return max;
+	}
+	
+	public double mediaPari(int vet[])
+	{
+		double media=0;
+		int tot = 0;
+		int count =0;
+		for(int i=0; i<vet.length; i++)
+		{
+			if(vet[i]%2==0)
+			{
+				tot+=vet[i];
+				count++;
+			}
+			media = tot / count;
+		}
+		return media;
+	}
+	
+	public void stampaInfo(String s)
+	{
+		System.out.println(s);
+	}
+	
+	public String[] inizVetString(int celle)
+	{
+		String[] array = new String[celle];
+		for(int i=0; i<array.length; i++)
+		{
+			array[i]= leggiStringa("Inserisci un nome della "+ (i+1) + " persona");
+		}
+		return array;
+	}
+	
+	public void trovaRalph(String[] array, String parola)
+	{
+		int count = 0;
+		for(int i=0; i<array.length; i++)
+		{
+			if(array[i].equals(parola))
+			{
+				count++;
+			}
+		}
+		System.out.println("Il nome Ralph appare "+ count + " volte.");
+	}
+	
 	public int menu()
 	{
 		System.out.println("***MENU***");
@@ -142,6 +264,9 @@ public class Lab {
 		System.out.println("5) totalizzatore");
 		System.out.println("6) semaforo");
 		System.out.println("7) min max");
+		System.out.println("8) array");
+		System.out.println("9) menu vettori");
+		System.out.println("10) trova ralph");
 		System.out.println("0) fine programma");
 		int scelta=leggiNumero("fai una scelta");
 		return scelta;
