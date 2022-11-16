@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Lab {
@@ -61,14 +62,14 @@ public class Lab {
 			}
 			catch(Exception e)
 			{
-				
+
 			}
 			finally //eseguito sia in caso di eccezione sia no. opzionale.
 			{
-				
+
 			}
 		}while(flag);
-	
+
 		return num;
 	}
 
@@ -150,7 +151,7 @@ public class Lab {
 		System.out.println("il valore massimo e' " + max + " il valore minimo e' " + min );
 
 	}
-	
+
 	public void array()
 	{
 		int[] array = new int[leggiNumero("Scegli quanti valori inserire")];
@@ -161,13 +162,13 @@ public class Lab {
 		}
 
 		System.out.println("i numeri inseriti sono:");
-		
+
 		for(int i=0; i<array.length; i++)
 		{
 			System.out.println(array[i]);
 		}
 	}
-	
+
 	public int[] inizVet(int celle)
 	{
 		int[] array = new int[celle];
@@ -177,14 +178,14 @@ public class Lab {
 		}
 		return array;
 	}
-	
+
 	public void menuVet()
 	{
 		System.out.println("1) somma numeri pari");
 		System.out.println("2) trova valore massimo");
 		System.out.println("3) media dei numeri pari");
 		int scelta = leggiNumero("scegli");
-		
+
 		if(scelta==1)
 		{
 			int[] vet = inizVet(leggiNumero("scegli quanti numeri inserire"));
@@ -200,8 +201,8 @@ public class Lab {
 		else if(scelta==3)
 		{
 			int[] vet = inizVet(leggiNumero("scegli quanti numeri inserire"));
-			 double media = mediaPari(vet);
-			 stampaInfo("La media dei numeri pari inseriti e' " + media);
+			double media = mediaPari(vet);
+			stampaInfo("La media dei numeri pari inseriti e' " + media);
 		}
 	}
 
@@ -217,7 +218,7 @@ public class Lab {
 		}
 		return somma;
 	}
-	
+
 	public int trovaMax(int vet[])
 	{
 		int max = vet[0]; //il valore nel primo cassetto e' il massimo
@@ -230,7 +231,7 @@ public class Lab {
 		}
 		return max;
 	}
-	
+
 	public double mediaPari(int vet[])
 	{
 		double media=0;
@@ -247,12 +248,12 @@ public class Lab {
 		}
 		return media;
 	}
-	
+
 	public void stampaInfo(String s)
 	{
 		System.out.println(s);
 	}
-	
+
 	public String[] inizVetString(int celle)
 	{
 		String[] array = new String[celle];
@@ -262,7 +263,7 @@ public class Lab {
 		}
 		return array;
 	}
-	
+
 	public int trovaNome(String[] array, String parola)
 	{
 		int count = 0;
@@ -273,9 +274,9 @@ public class Lab {
 				count++;
 			}
 		}
-			return count;
+		return count;
 	}
-	
+
 	public void contaConsVoc(String s)
 	{
 		int countA =0;
@@ -284,7 +285,7 @@ public class Lab {
 		int countO =0;
 		int countU =0;
 		int cons = 0;
-		
+
 		for(int i=0; i<s.length(); i++)
 		{
 			if (s.charAt(i) == 'a')
@@ -319,12 +320,111 @@ public class Lab {
 		System.out.println("u: "+countU);
 		System.out.println("consonanti: "+cons);
 	}
-	
-	//public palindromo(String s)
+
+	public boolean palindromo(String str)
+	{//charAt ritorna il carattere nella posizione iesima
+		boolean risp=true;
+		str= str.toLowerCase().replaceAll(" ", "");
+		for(int i=str.length()-1,j=0;i>j&&risp;i--,j++) 
+		{
+			if (str.charAt(i)!=str.charAt(j)) 
+				risp=false;
+		} 
+		return risp;
+	}
+
+	public double calcolatrice()
 	{
+		double ris = leggiNumero("scegli un numero");
+		String scelta;
+		int num2;
+
+		do
+		{
+			scelta = leggiStringa("scegli tra +, -, *, /, =");
+			if(!"=".equals(scelta))
+			{
+				num2 = leggiNumero("Scegli un numero");
+
+				if(scelta.equals("+"))
+				{
+					ris = ris+num2;
+				}
+				else if(scelta.equals("-"))
+				{
+					ris = ris-num2;
+				}
+				else if(scelta.equals("*"))
+				{
+					ris = ris*num2;
+				}
+				else if(scelta.equals("/"))
+				{
+					ris = ris/num2;
+				}
+
+				System.out.println(ris);
+			}
+		}while(!"=".equals(scelta));
+
+		return ris;
+	}
+
+	public void ordinamento(String[] array, String ord)
+	{
+		String temp;
+		if(ord.equalsIgnoreCase("crescente"))
+		{
+			for (int i = 0; i < array.length-1; i++) 
+			{
+				for (int j = i+1; j < array.length; j++) 
+				{
+					//vet[i].compareTo(vet[j]) ---> 0 -1  1
+
+					//confronto
+					if(array[i].compareTo(array[j])>0)
+					{
+						//swap - scambio
+						temp=array[i];
+						array[i]=array[j];  //vet[i]=anna  
+						array[j]=temp;  //vet[j]=marco
+
+					}
+				}
+			}
+		}
+		else if(ord.equalsIgnoreCase("decrescente"))
+		{
+			for (int i = 0; i < array.length-1; i++) 
+			{
+				for (int j = i+1; j < array.length; j++) 
+				{
+					//vet[i].compareTo(vet[j]) ---> 0 -1  1
+
+					//confronto
+					if(array[i].compareTo(array[j])<0)
+					{
+						//swap - scambio
+						temp=array[i];
+						array[i]=array[j];  //vet[i]=anna  
+						array[j]=temp;  //vet[j]=marco
+
+					}
+				}
+			}
+		}
 		
+
 	}
 	
+	public void stampaVet(String[] vet)
+	{
+		for (int j = 0; j < vet.length; j++)
+			System.out.println(vet[j]);
+		
+		
+	}
+
 	public int menu()
 	{
 		System.out.println("***MENU***");
@@ -340,6 +440,8 @@ public class Lab {
 		System.out.println("10) trova ralph");
 		System.out.println("11) conta lettere");
 		System.out.println("12) palindromo?");
+		System.out.println("13) calcolatrice");
+		System.out.println("14) ordine alfabetico");
 		System.out.println("0) fine programma");
 		return leggiNumero("fai una scelta");
 	}
