@@ -1,10 +1,14 @@
-import java.util.Arrays;
+import java.text.DecimalFormat;
+import java.util.Random;
 import java.util.Scanner;
+
 
 public class Lab {
 
 	//attributo, variabile globale. Tutti i metodi possono accedervi.
 	Scanner input = new Scanner(System.in);
+	Random numR =new Random();
+	DecimalFormat df = new DecimalFormat("0.0");
 
 	public void contatoreVerticale()
 	{
@@ -413,16 +417,140 @@ public class Lab {
 				}
 			}
 		}
-		
+
 
 	}
-	
+
 	public void stampaVet(String[] vet)
 	{
 		for (int j = 0; j < vet.length; j++)
 			System.out.println(vet[j]);
-		
-		
+
+
+	}
+
+	public void ordinamento(int[] array, String ord)
+	{
+		if(ord.equalsIgnoreCase("crescente"))
+		{
+			for(int i=0; i<array.length-1; i++)
+			{
+				for(int j=i+1; j<array.length; j++)
+				{
+					if(array[i]>array[j])
+					{
+						int swap=array[i];
+						array[i]=array[j];
+						array[j]=swap;
+					}
+				}
+			}
+		}
+		else if(ord.equalsIgnoreCase("decrescente"))
+		{
+			for(int i=0; i<array.length-1; i++)
+			{
+				for(int j=i+1; j<array.length; j++)
+				{
+					if(array[i]<array[j])
+					{
+						int swap=array[i];
+						array[i]=array[j];
+						array[j]=swap;
+					}
+				}
+			}
+		}
+
+	}
+
+
+	public void stampaVet(int[] vet)
+	{
+		for (int j = 0; j < vet.length; j++)
+			System.out.println(vet[j]);
+
+
+	}
+
+	public int[][] inizMatrice(int riga, int colonna)
+	{
+		int mat[][] = new int[riga][colonna];
+
+		for(int i=0; i<mat.length; i++)
+		{
+			for( int j=0; j<mat.length; j++)
+			{
+				mat[i][j]= leggiNumero("inserisci il " + (j+1)+ " numero della " + (i+1) + " riga nella " + (j+1) + " colonna");
+			}
+		}
+		return mat;
+	}
+
+	public void stampaMat(int[][] mat)
+	{
+		for(int i=0; i<mat.length; i++)
+		{
+			for(int j=0; j<mat.length; j++)
+			{
+				System.out.println(mat[i][j]);
+			}
+		}
+	}
+
+	public void meteo()
+	{
+		String[][] meteoMatr = new String[8][5];
+		for(int j = 0; j<5;j++)
+			for(int i = 0; i<8;i++)
+			{
+				if(j==0)
+				{
+					if(i==0)
+						meteoMatr[0][0] = "   ";
+					else if(i==1)
+						meteoMatr[i][j]="Lun";
+					else if(i==2)
+						meteoMatr[i][j]="Mar";
+					else if(i==3)
+						meteoMatr[i][j]="Mer";
+					else if(i==4)
+						meteoMatr[i][j]="Gio";
+					else if(i==5)
+						meteoMatr[i][j]="Ven";
+					else if(i==6)
+						meteoMatr[i][j]="Sab";
+					else
+						meteoMatr[i][j]="Dom";
+				}
+				else if(i==0)
+				{
+					if(j==1)
+						meteoMatr[i][j] = "  6  ";
+					if(j==2)
+						meteoMatr[i][j] = "  12 ";
+					if(j==3)
+						meteoMatr[i][j] = "  18 ";
+					if(j==4)
+						meteoMatr[i][j] = "  24 ";	
+				}
+				else
+				{
+					Random r = new Random();
+					meteoMatr[i][j] = (" "+(-4 + (40 - (-4)) * r.nextDouble())).substring(0, 5);
+				}
+			}
+		for(int j= 0; j<meteoMatr.length;j++)
+		{
+			System.out.print("|");
+			for(int i = 0; i < meteoMatr[j].length; i++)
+			{
+				System.out.print(meteoMatr[j][i]);
+				if(i != meteoMatr[j].length-1)
+					System.out.print("|");
+			}
+			System.out.println("|");
+		}
 	}
 
 	public int menu()
@@ -437,11 +565,14 @@ public class Lab {
 		System.out.println("7) min max");
 		System.out.println("8) array");
 		System.out.println("9) menu vettori");
-		System.out.println("10) trova ralph");
+		System.out.println("10) trova nome");
 		System.out.println("11) conta lettere");
 		System.out.println("12) palindromo?");
 		System.out.println("13) calcolatrice");
 		System.out.println("14) ordine alfabetico");
+		System.out.println("15) ordine numerico");
+		System.out.println("16) matrice");
+		System.out.println("17) meteo");
 		System.out.println("0) fine programma");
 		return leggiNumero("fai una scelta");
 	}

@@ -16,6 +16,8 @@ public class Esercizi {
 
 		boolean flag = true;
 		String[] vet ;
+		int[] array;
+		int[][] mat;
 
 		do
 		{
@@ -80,6 +82,18 @@ public class Esercizi {
 				vet = eserc.inizVetString(eserc.leggiNumero("scegli il numero totale di nomi da inserire"));
 				eserc.ordinamento(vet, eserc.leggiStringa("inserisci il tipo di ordinamento: crescente o decrescente"));
 				eserc.stampaVet(vet);
+				break;
+			case 15:
+				array = eserc.inizVet(eserc.leggiNumero("scegli quanti numeri vuoi inserire"));
+				eserc.ordinamento(array, eserc.leggiStringa("scegli il tipo di ordinamento che vuoi eseguire: crescente o decrescente"));
+				eserc.stampaVet(array);
+				break;
+			case 16:
+				mat = eserc.inizMatrice(eserc.leggiNumero("inserisci il numero di righe da inserire"), eserc.leggiNumero("inserisci il numero di colonne da inserire"));
+				eserc.stampaMat(mat);
+				break;
+			case 17: 
+				eserc.meteo();
 				break;
 			case 0: System.out.println("ARRIVEDERCI");
 			flag = false;
