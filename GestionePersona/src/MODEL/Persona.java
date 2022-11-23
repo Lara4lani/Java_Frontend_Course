@@ -17,10 +17,14 @@ public class Persona //creiamo classe con entita'
 	}
 	
 	
+	
+	
 	public void setCognome(String cognome)
 	{
 	   	this.cognome=cognome;
 	}
+	
+	
 	
 	
 	public void setEta(int eta)
@@ -29,10 +33,14 @@ public class Persona //creiamo classe con entita'
 	}
 	
 	
+	
+	
 	public void setCf(String cf)
 	{
 	   	this.cf=cf;
 	}
+	
+	
 	
 	
 	//usiamo metodi pubblici per ritornare gli attributi scegli e poterli stampare
@@ -41,15 +49,21 @@ public class Persona //creiamo classe con entita'
 		return nome;
 	}
 	
+	
+	
 	public String getCognome()
 	{
 		return cognome;
 	}
 	
+	
+	
 	public int getEta()
 	{
 		return eta;
 	}
+	
+	
 	
 	public String getCf()
 	{

@@ -18,6 +18,8 @@ public class View
 
 	}
 
+	
+	
 
 	public int leggiNumero(String s)
 	{
@@ -42,6 +44,8 @@ public class View
 		return num;
 		
 	}
+	
+	
 
 	//metodo per far scegliere a utente le info di persona
 	public void mascheraInserimento(Persona p)
@@ -50,6 +54,20 @@ public class View
 		p.setCognome(leggiStringa("Inserisci il cognome:"));
 		p.setEta(leggiNumero("Inserisci l'eta':"));
 		p.setCf(leggiStringa("Inserisci il codice fiscale:"));
+	}
+	
+	public void mascheraModifica(Persona pold, Persona pnew)
+	{
+		String nome = leggiStringa("nome[" + pold.getNome()+ "]:");
+		if (!nome.isEmpty())
+		{
+			pnew.setNome(nome);
+		}
+		else
+		{
+			pnew.setNome(pold.getNome());
+		}
+		
 	}
 	
 	
@@ -67,6 +85,8 @@ public class View
 	}
 	
 	
+	
+	
 	//metodo per far stampare array 
 	public void stampaPersona(ArrayList<Persona> array)
 	{
@@ -81,15 +101,21 @@ public class View
 		}	
 	}
 	
+	
+	
 	public void stampaStringa(String s)
 	{
 		System.out.println(s);
 	}
 	
+	
+	
 	public void stampaSpazio()
 	{
 		System.out.println("\n");
 	}
+	
+	
 	
 	public  int stampaMenu()
 	{
@@ -102,6 +128,8 @@ public class View
 		System.out.println("0. ESCI");
 		return leggiNumero("Sceli l'operazione da eseguire");
 	}
+	
+	
 	
 	public void stampaUscita()
 	{

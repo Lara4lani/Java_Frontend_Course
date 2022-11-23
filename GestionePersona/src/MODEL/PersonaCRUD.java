@@ -13,8 +13,6 @@ public class PersonaCRUD
 
 	//creiamo arraylist
 	private ArrayList<Persona> array=new ArrayList<Persona>();
-	View view = new View();
-	Persona p = new Persona();
 
 	//CRUD
 
@@ -28,10 +26,11 @@ public class PersonaCRUD
 		//array.get(0) ritorna l'oggetto in quella specifica posizione (0)
 		//array.set(0, p) modifica l'oggetto in quella specifica posizione sostituendolo con il nuovo (secondo parametro)	
 	}
+	
+	
 
-	public void ricercaPersona()
+	public Persona ricercaPersona(String cf)
 	{
-		String cf=view.leggiStringa("inserisci il codice fiscale da ricercare");
 		Persona findp =null;
 		for (Persona p : array) 
 		{
@@ -40,45 +39,23 @@ public class PersonaCRUD
 				findp = p;
 			}
 		}	
-		if(findp!=null)
-		{
-			view.stampaPersona(findp);
-		}
-		else
-		{
-			view.stampaStringa("la persona inserita non e' presente nell'elenco");
-		}
+		
+		return findp;
 	}
 
-	public void eliminaPersona()
+	
+	
+	public void eliminaPersona(Persona findp)
 	{
-		String cf=view.leggiStringa("inserisci il codice fiscale da ricercare");
-		Persona findp =null;
-		for (Persona p : array) 
-		{
-			if(p.getCf().equalsIgnoreCase(cf))
-			{
-				findp = p;
-			}
-		}	
-		if(findp!=null)
-		{
-			view.stampaPersona(findp);
-			String scelta = view.leggiStringa("vuoi davvero eliminare questa persona dall'elenco?");
-			if(scelta.equalsIgnoreCase("si"))
-			{
-				array.remove(findp);
-				view.stampaStringa("la persona selezionata e' stata rimossa dall'elenco");
-			}
-			else
-			{
-				view.stampaStringa("nessuna persona e' stata eliminata dall'elenco");
-			}
-		}
-		else
-		{
-			view.stampaStringa("la persona inserita non e' presente nell'elenco");
-		}
+		array.remove(findp);	
+	}
+	
+	
+	
+	public void modificaPersona(Persona findp, Persona modp)
+	{
+		int index = array.indexOf(findp);
+		array.set(index, modp);
 	}
 
 
