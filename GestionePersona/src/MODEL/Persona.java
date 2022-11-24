@@ -74,15 +74,16 @@ public class Persona //creiamo classe con entita'
 
 
 
-
-	@Override
+	//permette di stampare direttamente tutti i campi dell'oggetto senza doverlo fare uno alla volta
+	@Override 
 	public String toString() {
 		return "nome: " + nome + ", cognome: " + cognome + ", eta: " + eta + ", cf: " + cf ;
 	}
 
 
 
-
+	//questo e quello sotto sovrascrivono il metodo di object .equals e fanno in modo che vengano 
+	//messi a confronto tutti i campi di un oggetto per controllare se due oggetti sono uguali
 	@Override
 	public int hashCode() {
 		return Objects.hash(cf, cognome, eta, nome);

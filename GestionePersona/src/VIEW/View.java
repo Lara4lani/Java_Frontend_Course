@@ -59,7 +59,7 @@ public class View
 	public Persona mascheraModifica(Persona pold, Persona pnew)
 	{
 		String nome = leggiStringa("nome[" + pold.getNome()+ "]:");
-		if (!nome.isEmpty())
+		if (!nome.isEmpty()) //isEmpty metodo string, significa che l'input e' invio
 		{
 			pnew.setNome(nome);
 		}
