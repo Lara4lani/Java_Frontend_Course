@@ -56,7 +56,7 @@ public class View
 		p.setCf(leggiStringa("Inserisci il codice fiscale:"));
 	}
 	
-	public void mascheraModifica(Persona pold, Persona pnew)
+	public Persona mascheraModifica(Persona pold, Persona pnew)
 	{
 		String nome = leggiStringa("nome[" + pold.getNome()+ "]:");
 		if (!nome.isEmpty())
@@ -68,6 +68,42 @@ public class View
 			pnew.setNome(pold.getNome());
 		}
 		
+		String cognome = leggiStringa("cognome[" + pold.getCognome()+ "]:");
+		if (!cognome.isEmpty())
+		{
+			pnew.setCognome(cognome);
+		}
+		else
+		{
+			pnew.setCognome(pold.getCognome());
+		}
+		
+		String eta = leggiStringa("eta'[" + pold.getEta()+ "]:");
+		if (!eta.isEmpty())
+		{
+			pnew.setEta(Integer.parseInt(eta));
+		}
+		else
+		{
+			pnew.setEta(pold.getEta());
+		}
+		
+		String cf = leggiStringa("codice fiscale[" + pold.getCf()+ "]:");
+		if (!cf.isEmpty())
+		{
+			pnew.setCf(cf);
+		}
+		else
+		{
+			pnew.setCf(pold.getCf());
+		}
+		
+		
+		if(leggiStringa("sei sicuro di voler apportare le modifiche?").equalsIgnoreCase("si"))
+		{
+			return pnew;
+		}
+		return pold;
 	}
 	
 	
@@ -75,12 +111,11 @@ public class View
 	//metodo per stampare le info di persona
 	public void stampaPersona(Persona p)
 	{
-		//System.out.println(p);  NO!
-		System.out.println("nome: "+p.getNome());
+		System.out.println(p);  
+		/*System.out.println("nome: "+p.getNome());
 		System.out.println("cognome: "+p.getCognome());
 		System.out.println("eta': "+p.getEta());
-		System.out.println("codice fiscale: "+p.getCf());
-		System.out.println("\n");
+		System.out.println("codice fiscale: "+p.getCf());*/
 		
 	}
 	
@@ -93,11 +128,7 @@ public class View
 		//per ogni persona p all'interno di array verra' stampato il menu sotto
 		for (Persona p : array) 
 		{
-			System.out.println("nome: "+p.getNome());
-			System.out.println("cognome:" +p.getCognome());
-			System.out.println("eta': "+p.getEta());
-			System.out.println("codice fiscale: "+p.getCf());
-			System.out.println("\n");
+			System.out.println(p);  
 		}	
 	}
 	

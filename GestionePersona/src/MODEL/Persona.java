@@ -1,5 +1,7 @@
 package MODEL;
 
+import java.util.Objects;
+
 public class Persona //creiamo classe con entita'
 {
 
@@ -68,6 +70,38 @@ public class Persona //creiamo classe con entita'
 	public String getCf()
 	{
 		return cf;
+	}
+
+
+
+
+	@Override
+	public String toString() {
+		return "nome: " + nome + ", cognome: " + cognome + ", eta: " + eta + ", cf: " + cf ;
+	}
+
+
+
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(cf, cognome, eta, nome);
+	}
+
+
+
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Persona other = (Persona) obj;
+		return Objects.equals(cf, other.cf) && Objects.equals(cognome, other.cognome) && eta == other.eta
+				&& Objects.equals(nome, other.nome);
 	}
 	
 	

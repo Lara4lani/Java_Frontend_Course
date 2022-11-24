@@ -17,7 +17,6 @@ public class Test {
 		ArrayList<Persona> array=new ArrayList<Persona>();
 		Persona findp =null;
 		String scelta;
-		Persona modp = null;
 		
 
 		do
@@ -70,7 +69,17 @@ public class Test {
 				{
 					view.stampaPersona(findp);
 					//scelta = view.leggiStringa("vuoi modificare i dati di questa persona?");
-					view.mascheraModifica(findp, new Persona());
+					Persona pm = view.mascheraModifica(findp, new Persona());
+					if(pm.equals(findp))
+					{
+						view.stampaStringa("la modifica e' stata annullata");
+					}
+					else
+					{
+						crud.modificaPersona(findp, pm);
+						view.stampaStringa("la modifica e' stata eseguita");
+					}
+					
 				}
 				else
 				{
