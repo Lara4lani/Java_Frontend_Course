@@ -1,9 +1,11 @@
 package VIEW.HashMap;
 
-import java.util.ArrayList;
+
+import java.util.HashMap;
 import java.util.Scanner;
 
-import MODEL.ArrayList.Persona;
+import MODEL.HashMAp.Persona;
+
 
 public class View 
 {
@@ -123,10 +125,10 @@ public class View
 	
 	
 	//metodo per far stampare array 
-	public void stampaPersona(ArrayList<Persona> array)
+	public void stampaPersona(HashMap<String, Persona> hmap)
 	{
 		//per ogni persona p all'interno di array verra' stampato il menu sotto
-		for (Persona p : array) 
+		for (Persona p : hmap.values()) 
 		{
 			System.out.println(p);  
 		}	

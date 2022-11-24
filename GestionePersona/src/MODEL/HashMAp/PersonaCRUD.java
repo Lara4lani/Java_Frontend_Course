@@ -1,21 +1,19 @@
 package MODEL.HashMAp;
 
-
-
-
+import java.util.HashMap;
 
 public class PersonaCRUD 
 {
 
 	//creiamo arraylist
 	
-	HashMap<int, Persona> hmap= new HashMap<int, persona>();
+	private HashMap<String, Persona> hmap= new HashMap<String, Persona>();
 	//CRUD
 
 
-	public void inserimentoPersona(Persona p)
+	public void inserimentoPersona(String s, Persona p)
 	{
-			
+		hmap.put(s, p);
 	}
 	
 	
@@ -23,7 +21,7 @@ public class PersonaCRUD
 	public Persona ricercaPersona(String cf)
 	{
 		Persona findp =null;
-		for (Persona p : array) 
+		for (Persona p : hmap.values()) 
 		{
 			if(p.getCf().equalsIgnoreCase(cf))
 			{
@@ -36,24 +34,24 @@ public class PersonaCRUD
 
 	
 	
-	public void eliminaPersona(Persona findp)
+	public void eliminaPersona(String s,Persona findp)
 	{
-		array.remove(findp);	
+		hmap.remove(s, findp);	
 	}
 	
 	
 	
-	public void modificaPersona(Persona findp, Persona modp)
+	public void modificaPersona(String s,Persona findp, Persona modp)
 	{
-		int index = array.indexOf(findp);
-		array.set(index, modp);
+		hmap.put(s, modp);
+		hmap.remove(s, findp);
 	}
 
 
 	//metodo per ritornare l'array con all'interno le persone e poterlo stampare
-	public ArrayList<Persona> getArray()
+	public HashMap<String, Persona> getHashMap()
 	{
-		return array;
+		return hmap;
 	}
 
 
