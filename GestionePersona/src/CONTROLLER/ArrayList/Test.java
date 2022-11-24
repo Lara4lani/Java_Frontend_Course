@@ -1,10 +1,10 @@
-package CONTROLLER;
+package CONTROLLER.ArrayList;
 
 import java.util.ArrayList;
 
-import MODEL.Persona;
-import MODEL.PersonaCRUD;
-import VIEW.View;
+import MODEL.ArrayList.Persona;
+import MODEL.ArrayList.PersonaCRUD;
+import VIEW.ArrayList.View;
 
 public class Test {
 

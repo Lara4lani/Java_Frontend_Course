@@ -1,10 +1,9 @@
-package MODEL;
+package MODEL.ArrayList;
 
 import java.util.ArrayList;
 
-import VIEW.View;
-
-import MODEL.Persona;
+import MODEL.ArrayList.Persona;
+import VIEW.ArrayList.View;
 
 
 
