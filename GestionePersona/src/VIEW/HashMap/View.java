@@ -1,6 +1,7 @@
 package VIEW.HashMap;
 
 
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Scanner;
 
@@ -58,7 +59,7 @@ public class View
 		p.setCf(leggiStringa("Inserisci il codice fiscale:"));
 	}
 	
-	public Persona mascheraModifica(Persona pold, Persona pnew)
+	public Persona mascheraModifica(Persona pold,Persona pnew)
 	{
 		String nome = leggiStringa("nome[" + pold.getNome()+ "]:");
 		if (!nome.isEmpty()) //isEmpty metodo string, significa che l'input e' invio
@@ -125,10 +126,10 @@ public class View
 	
 	
 	//metodo per far stampare array 
-	public void stampaPersona(HashMap<String, Persona> hmap)
+	public void stampaPersona(Collection<Persona> hmap)
 	{
 		//per ogni persona p all'interno di array verra' stampato il menu sotto
-		for (Persona p : hmap.values()) 
+		for (Persona p : hmap) 
 		{
 			System.out.println(p);  
 		}	

@@ -1,60 +1,77 @@
 package MODEL.HashMAp;
 
+import java.security.KeyStore.Entry;
+import java.util.Collection;
 import java.util.HashMap;
+import java.util.Map;
 
 public class PersonaCRUD 
 {
-
-	//creiamo arraylist
+//creo collection hashmap
+//metto map perche tanto essendo piu  generico va bene lo stesso
+private Map<Integer,Persona> dataBasePersone = new HashMap<Integer,Persona>();
 	
-	private HashMap<String, Persona> hmap= new HashMap<String, Persona>();
-	//CRUD
-
-
-	public void inserimentoPersona(String s, Persona p)
+	public void inserimentoPersona(Persona p)
 	{
-		hmap.put(s, p);
+		//integer n sarebbe la chiave 
+		Integer n = dataBasePersone.size()+1; // ritorna il numero tot di chiavi presenti nella map
+		dataBasePersone.put(n, p); //put inserisce la chiave n associata al valore p dentro la map
 	}
 	
 	
-
+	//questo perche hashmap e' una struttura di key+value quindi per
+	//avere solo i valori dobbiamo usare un metodo di tipo collection (ha dentro solo values)
+	public Collection<Persona> getValori()
+	{
+		return dataBasePersone.values();//ritorna solo i valori del hashmap
+	}
+	
 	public Persona ricercaPersona(String cf)
 	{
-		Persona findp =null;
-		for (Persona p : hmap.values()) 
-		{
-			if(p.getCf().equalsIgnoreCase(cf))
-			{
-				findp = p;
-			}
-		}	
-		
-		return findp;
+		Persona personaCercata = null;
+		for(Persona p: getValori())
+			if(p.getCf().equals(cf))
+				personaCercata = p;
+		return personaCercata;
 	}
-
 	
 	
-	public void eliminaPersona(String s,Persona findp)
+	//Con questo metodo scorro con un for each tutti gli abbinamenti tra chiave e valori dell'HashMap
+	// per trovare la chiave associata al valore da eliminare.
+	//Trovata la chiave la posso usare per rimuovare il valore
+	public void eliminaPersona(Persona p)
 	{
-		hmap.remove(s, findp);	
+		for(Integer key: dataBasePersone.keySet()) //va a controllare ogni chiave presente nel set di chiavi	
+			if(dataBasePersone.get(key).equals(p))//get key ritorna il valore della chiave 
+				dataBasePersone.remove(p);
 	}
 	
-	
-	
-	public void modificaPersona(String s,Persona findp, Persona modp)
+	public void rimpiazzaPersona(Persona pModificata, Persona p1)
 	{
-		hmap.put(s, modp);
-		hmap.remove(s, findp);
+		for(Integer key1: dataBasePersone.keySet())
+			if(dataBasePersone.get(key1).equals(p1))
+				dataBasePersone.replace(key1, pModificata, p1);
 	}
 
+//	public void sostiusciPersona(Persona pModificata, Persona p1)
+//	{		
+//		p1.setNome(pModificata.getNome());		
+//		p1.setCognome(pModificata.getCognome());	
+//		p1.setCf(pModificata.getCf());	
+//		p1.setEta(pModificata.getEta());
+//	}
+	
 
-	//metodo per ritornare l'array con all'interno le persone e poterlo stampare
-	public HashMap<String, Persona> getHashMap()
-	{
-		return hmap;
-	}
-
-
-
-
+	
+//	public void rimuoviPersona(Persona p)
+//	{
+//		Integer key = null;
+//		for(Entry<Integer, Persona> entry:dataBasePersone.entrySet())
+//		{
+//			if(p.equals(entry.getValue()))
+//				key = entry.getKey();
+//		}
+//		dataBasePersone.remove(key, p);
+//		
+//	}
 }

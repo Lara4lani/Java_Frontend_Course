@@ -14,7 +14,6 @@ public class Test {
 		boolean flag = true;
 		Persona findp =null;
 		String scelta;
-		
 
 		do
 		{
@@ -46,7 +45,7 @@ public class Test {
 					scelta = view.leggiStringa("vuoi davvero eliminare questa persona dall'elenco?");
 					if(scelta.equalsIgnoreCase("si"))
 					{
-						crud.eliminaPersona(findp);
+						crud.eliminaPersona( findp);
 						view.stampaStringa("la persona selezionata e' stata rimossa dall'elenco");
 					}
 					else
@@ -73,7 +72,7 @@ public class Test {
 					}
 					else
 					{
-						crud.modificaPersona(findp, pm);
+						crud.rimpiazzaPersona(pm, p);
 						view.stampaStringa("la modifica e' stata eseguita");
 					}
 					
@@ -84,7 +83,7 @@ public class Test {
 				}
 				break;
 			case 5:
-				view.stampaPersona(crud.getArray());
+				view.stampaPersona(crud.getValori());
 				break;
 			case 0:
 				view.stampaUscita();
