@@ -27,7 +27,7 @@ public class Test {
 			case 2:
 				findp=crud.cercaPersona(view.leggiStringa("inserisci il codice fiscale da ricercare"));
 				if(findp!=null)
-					view.stampaPersona(p);
+					view.stampaPersona(findp);
 				else
 					view.stampaStringa("La persona cercata non e' presente nell'elenco");
 				break;

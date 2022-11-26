@@ -74,10 +74,6 @@ public class Persona //creiamo classe con entita'
 
 
 	//permette di stampare direttamente tutti i campi dell'oggetto senza doverlo fare uno alla volta
-	@Override 
-	public String toString() {
-		return "nome: " + nome + ", cognome: " + cognome + ", eta: " + eta + ", cf: " + cf ;
-	}
 
 
 
@@ -86,6 +82,14 @@ public class Persona //creiamo classe con entita'
 	@Override
 	public int hashCode() {
 		return Objects.hash(cf, cognome, eta, nome);
+	}
+
+
+
+
+	@Override
+	public String toString() {
+		return "nome=" + nome + ", cognome=" + cognome + ", eta=" + eta + ", cf=" + cf ;
 	}
 
 
