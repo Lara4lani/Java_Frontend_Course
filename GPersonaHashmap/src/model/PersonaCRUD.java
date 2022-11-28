@@ -27,4 +27,18 @@ public class PersonaCRUD {
 		return findp;
 	}
 	
+	public void eliminaPersona(Persona p)
+	{
+		for(Integer key : databasePersone.keySet())
+			if(databasePersone.get(key).equals(p))
+				databasePersone.remove(key);
+	}
+	
+	public void modificaPersona(Persona findp, Persona mod)
+	{
+		for(Integer key1 : databasePersone.keySet())
+			if(databasePersone.get(key1).equals(findp))
+			databasePersone.replace(key1, findp, mod);
+	}
+	
 }

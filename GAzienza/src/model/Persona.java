@@ -1,100 +1,54 @@
 package model;
-import java.util.Objects; 
 
-public class Persona //creiamo classe con entita'
-{
+import java.util.Objects;
 
-	//attributi privati di entita'
+public class Persona {
+
+	//dichiaro gli attributi privati
 	private String nome;
 	private String cognome;
 	private int eta;
 	private String cf;
 	
-	
-	//usiamo dei metodi pubblici per poter accedere agli attributi e far si che vengano scelti da utente
-	public void setNome(String nome)
-	{
-	   	this.nome=nome;
-	}
-	
-	
-	
-	
-	public void setCognome(String cognome)
-	{
-	   	this.cognome=cognome;
-	}
-	
-	
-	
-	
-	public void setEta(int eta)
-	{
-	   	this.eta=eta;
-	}
-	
-	
-	
-	
-	public void setCf(String cf)
-	{
-	   	this.cf=cf;
-	}
-	
-	
-	
-	
-	//usiamo metodi pubblici per ritornare gli attributi scegli e poterli stampare
-	public String getNome()
-	{
+	//metodi get e set degli attributi
+	public String getNome() {
 		return nome;
 	}
-	
-	
-	
-	public String getCognome()
-	{
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+	public String getCognome() {
 		return cognome;
 	}
-	
-	
-	
-	public int getEta()
-	{
+	public void setCognome(String cognome) {
+		this.cognome = cognome;
+	}
+	public int getEta() {
 		return eta;
 	}
-	
-	
-	
-	public String getCf()
-	{
+	public void setEta(int eta) {
+		this.eta = eta;
+	}
+	public String getCf() {
 		return cf;
 	}
-
-
-
+	public void setCf(String cf) {
+		this.cf = cf;
+	}
+	
 	//permette di stampare direttamente tutti i campi dell'oggetto senza doverlo fare uno alla volta
-
-
-
+	@Override
+	public String toString() {
+		return "nome: " + nome + "\n" + "cognome: " + cognome + "\n" + "eta: " + eta + "\n" + "codice fiscale: " + cf + "\n";
+	}
+	
 	//questo e quello sotto sovrascrivono il metodo di object .equals e fanno in modo che vengano 
 	//messi a confronto tutti i campi di un oggetto per controllare se due oggetti sono uguali
 	@Override
 	public int hashCode() {
 		return Objects.hash(cf, cognome, eta, nome);
 	}
-
-
-
-
-	@Override
-	public String toString() {
-		return "nome=" + nome + ", cognome=" + cognome + ", eta=" + eta + ", cf=" + cf ;
-	}
-
-
-
-
+	
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -107,9 +61,5 @@ public class Persona //creiamo classe con entita'
 		return Objects.equals(cf, other.cf) && Objects.equals(cognome, other.cognome) && eta == other.eta
 				&& Objects.equals(nome, other.nome);
 	}
-	
-	
-	
-	
 	
 }
