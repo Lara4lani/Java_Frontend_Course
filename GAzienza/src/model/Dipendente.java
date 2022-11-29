@@ -35,7 +35,14 @@ public class Dipendente extends Persona {
 		Dipendente other = (Dipendente) obj;
 		return Objects.equals(stipendio, other.stipendio);
 	}
+
+	public Dipendente(String nome, String cognome, int eta, String cf, Double stipendio) {
+		super(nome, cognome, eta, cf);
+		this.stipendio = stipendio;
+	}
 	
-	
-	
+	public Dipendente()
+	{
+		
+	}
 }

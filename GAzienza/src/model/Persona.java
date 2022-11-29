@@ -62,4 +62,17 @@ public class Persona {
 				&& Objects.equals(nome, other.nome);
 	}
 	
+	//costruttore parametrizzato
+	public Persona(String nome, String cognome, int eta, String cf) {
+		this.nome = nome;
+		this.cognome = cognome;
+		this.eta = eta;
+		this.cf = cf;
+	}
+	
+	//costruttore senza parametri
+	public Persona() {
+		
+	}
+	
 }

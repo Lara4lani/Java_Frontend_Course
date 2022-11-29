@@ -1,15 +1,17 @@
 package util;
 
-import java.util.Collection;
 
-import model.Persona;
+import java.util.HashMap;
 
-public interface Icrud {
+import model.Dipendente;
+
+
+public interface Icrud { //le variabili dichiarate qui sono tutte costanti (final) di default
 
 	//creo i metodi che verranno sovrascritti nel crud
-	public void inserisci(Persona p);
-	public Collection<Persona> getValues();
-	//public void cerca();
-	//public void elimina();
-	//public void modifica();	
+	public void inserisci(Dipendente d);
+	public HashMap<Integer, Dipendente> getMap();
+	public Dipendente cerca(String cf);
+	public void elimina(Dipendente d);
+	public void modifica(Dipendente dold, Dipendente dnew);
 }

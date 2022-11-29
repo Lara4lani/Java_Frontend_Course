@@ -38,7 +38,15 @@ public class Manager extends Dipendente {
 		Manager other = (Manager) obj;
 		return Objects.equals(ruolo, other.ruolo);
 	}
+
+	public Manager(String nome, String cognome, int eta, String cf, Double stipendio, String ruolo) {
+		super(nome, cognome, eta, cf, stipendio);
+		this.ruolo = ruolo;
+	}
 	
+	public Manager()
+	{
 		
+	}
 	
 }

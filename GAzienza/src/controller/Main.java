@@ -11,49 +11,79 @@ public class Main {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
-		//creo gli oggetti 
-		Persona d = new Dipendente();
-		Persona m = new Manager();
+		//instanzio gli oggetti 
 		View view = new View();
 		Crud crud = new Crud();
 		Boolean flag = true;
 		int profilo;
-		
+		Dipendente dfind = null;
+
+
 		do
 		{
-			Persona p = new Persona();
+			Dipendente d = new Dipendente();
+			Manager m = new Manager();
 			switch(view.stampaMenu())
 			{
 			case 1:
-				profilo = view.leggiNumero("Specifica il tipo di profilo che vuoi inserire:" + "\n" + "1. Dipendente" + "\n" + "2. Manager");
+				profilo = view.leggiNumero("Specifica il tipo di profilo che vuoi inserire: \n 1. Dipendente \n 2. Manager");
 				if(profilo==1)
 				{
 					view.mascheraInserimento(d);
 					crud.inserisci(d);
-					view.stampaStringa("Il profilo e' stato aggiunto");
+					view.stampaStringa("Il profilo dipendente e' stato aggiunto");
+					view.stampaDipendente(d);
 				}
 				else if(profilo==2)
 				{
 					view.mascheraInserimento(m);
 					crud.inserisci(m);
-					view.stampaStringa("Il profilo e' stato aggiunto");
+					view.stampaStringa("Il profilo manager e' stato aggiunto");
+					view.stampaDipendente(m);
 				}
+				else
+					view.stampaStringa("Scelta non valida");
 				break;
 			case 2:
+				dfind = crud.cerca(view.leggiStringa("Scrivi il codice fiscale della persona da rimuovere dall'elenco"));
+				if(dfind!=null)
+				{
+					view.stampaDipendente(dfind);
+				}
+				else
+					view.stampaStringa("Codice fiscale non valido");
 				break;
 			case 3: 
+				dfind = crud.cerca(view.leggiStringa("Scrivi il codice fiscale della persona da rimuovere dall'elenco"));
+				if(dfind!=null)
+				{
+					view.stampaDipendente(dfind);
+					String scelta = view.leggiStringa("Vuoi davvero rimuovere questa persona dall'elenco?");
+					if(scelta.equalsIgnoreCase("si"))
+					{
+						crud.elimina(dfind);
+						view.stampaStringa("La peersona selezionata e' stata rimossa dall'elenco");
+					}
+					else
+						view.stampaStringa("Nessuna persona e' stata rimossa dall'elenco");	
+				}
+				else
+					view.stampaStringa("Codice fiscale non valido");
 				break;
 			case 4:
 				break;
 			case 5:
-				view.stampa(crud.getValues());
+				view.stampaDipendente(crud.getMap());
 				break;
 			case 0:
 				flag = false;
 				break;
+			default :
+				view.stampaStringa("Scelta non valida");
+				break;
 			}
 		}while(flag);
-		
+
 	}
 
 }

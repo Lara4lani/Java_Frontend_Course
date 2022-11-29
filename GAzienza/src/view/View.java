@@ -1,6 +1,7 @@
 package view;
 
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.Scanner;
 
 import model.Dipendente;
@@ -88,38 +89,119 @@ public class View {
 		return leggiNumero("Scegli l'operazione da eseguire");
 	}
 	
-	public void mascheraInserimento(Persona p)
+	public void mascheraInserimento(Dipendente d)
 	{
-		if(p instanceof Manager)
+		if(d instanceof Manager)
 		{
-			p.setNome(leggiStringa("Inserisci il nome"));
-			p.setCognome(leggiStringa("Inserisci il cognome"));
-			p.setEta(leggiNumero("Inserisci l'eta'"));
-			p.setCf(leggiStringa("Inserisci il codice fiscale"));
-			Dipendente d = (Dipendente) p;
+			d.setNome(leggiStringa("Inserisci il nome"));
+			d.setCognome(leggiStringa("Inserisci il cognome"));
+			d.setEta(leggiNumero("Inserisci l'eta'"));
+			d.setCf(leggiStringa("Inserisci il codice fiscale"));
 			d.setStipendio(leggiDouble("Inserisci lo stipendio"));
-			Manager m = (Manager) p;
-			m.setRuolo(leggiStringa("Inserisci il ruolo"));
+			//cast breve per poter vedere i metodi del "figlio"
+			((Manager)d).setRuolo(leggiStringa("Inserisci il ruolo")); 
 		}
-		else if(p instanceof Dipendente)
+		else
 		{
-			p.setNome(leggiStringa("Inserisci il nome"));
-			p.setCognome(leggiStringa("Inserisci il cognome"));
-			p.setEta(leggiNumero("Inserisci l'eta'"));
-			p.setCf(leggiStringa("Inserisci il codice fiscale"));
-			Dipendente d = (Dipendente) p;
+			d.setNome(leggiStringa("Inserisci il nome"));
+			d.setCognome(leggiStringa("Inserisci il cognome"));
+			d.setEta(leggiNumero("Inserisci l'eta'"));
+			d.setCf(leggiStringa("Inserisci il codice fiscale"));
 			d.setStipendio(leggiDouble("Inserisci lo stipendio"));
 		}
 	}
 	
-	public void stampa(Persona p)
+	public Dipendente mascheraModifica(Dipendente dold, Dipendente dnew)
 	{
-		System.out.println(p);
+		
+		if (dold instanceof Manager) 
+		{
+			String nome = leggiStringa("nome ["+dold.getNome()+"]");
+			if(!nome.isEmpty())
+				dnew.setNome(nome);
+			else
+				dold.setNome(dold.getCognome());
+
+			String cognome = leggiStringa("cognome ["+dold.getCognome()+"]");
+			if(!cognome.isEmpty())
+				dnew.setCognome(cognome);
+			else
+				dold.setCognome(dold.getCognome());
+			
+			String eta = leggiStringa("eta' ["+dold.getEta()+"]");
+			if(!eta.isEmpty())
+				dnew.setEta(Integer.parseInt(eta));
+			else
+				dold.setEta(dold.getEta());
+			
+			String cf = leggiStringa("codice fiscale ["+dold.getCf()+"]");
+			if(!cf.isEmpty())
+				dnew.setCf(cf);
+			else
+				dold.setCf(dold.getCf());
+			 
+			String stipendio = leggiStringa("stipendio ["+dold.getStipendio()+"]");
+			if(!stipendio.isEmpty())
+				dnew.setStipendio(Double.parseDouble(stipendio));
+			else
+				dold.setStipendio(dold.getStipendio());
+			
+			String ruolo = leggiStringa("ruolo ["+((Manager)dold).getRuolo()+"]");
+			if(!ruolo.isEmpty())
+				((Manager)dnew).setRuolo(ruolo);
+			else
+				((Manager)dold).setRuolo(((Manager)dold).getRuolo());
+		}
+		else
+		{
+			String nome = leggiStringa("nome ["+dold.getNome()+"]");
+			if(!nome.isEmpty())
+				dnew.setNome(nome);
+			else
+				dold.setNome(dold.getCognome());
+
+			String cognome = leggiStringa("cognome ["+dold.getCognome()+"]");
+			if(!cognome.isEmpty())
+				dnew.setCognome(cognome);
+			else
+				dold.setCognome(dold.getCognome());
+			
+			String eta = leggiStringa("eta' ["+dold.getEta()+"]");
+			if(!eta.isEmpty())
+				dnew.setEta(Integer.parseInt(eta));
+			else
+				dold.setEta(dold.getEta());
+			
+			String cf = leggiStringa("codice fiscale ["+dold.getCf()+"]");
+			if(!cf.isEmpty())
+				dnew.setCf(cf);
+			else
+				dold.setCf(dold.getCf());
+			 
+			String stipendio = leggiStringa("stipendio ["+dold.getStipendio()+"]");
+			if(!stipendio.isEmpty())
+				dnew.setStipendio(Double.parseDouble(stipendio));
+			else
+				dold.setStipendio(dold.getStipendio());
+		}
+		
+		if(leggiStringa("Confermi le modifiche?").equalsIgnoreCase("si"))
+		{
+			return dnew;
+		}
+		else
+			stampaStringa("Nessuna modifica e' stata apportata");
+			return dold;	
 	}
 	
-	public void stampa(Collection<Persona> hmap)
+	public void stampaDipendente(Dipendente d)
 	{
-		for(Persona p : hmap)
-			System.out.println(p);
+		System.out.println(d);
+	}
+	
+	public void stampaDipendente(HashMap<Integer, Dipendente> hmap)
+	{
+		for(Dipendente d : hmap.values())
+			System.out.println(d);
 	}
 }
