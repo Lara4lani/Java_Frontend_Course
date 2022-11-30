@@ -19,6 +19,8 @@ public class Manager extends Dipendente {
 		return super.toString()+"ruolo: " + ruolo + "\n";
 	}
 
+	
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;

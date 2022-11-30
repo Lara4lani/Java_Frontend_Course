@@ -16,7 +16,7 @@ public class Main {
 		Crud crud = new Crud();
 		Boolean flag = true;
 		int profilo;
-		Dipendente dfind = null;
+		Dipendente dfind;
 
 
 		do
@@ -71,6 +71,23 @@ public class Main {
 					view.stampaStringa("Codice fiscale non valido");
 				break;
 			case 4:
+				dfind = crud.cerca(view.leggiStringa("Scrivi il codice fiscale della persona da modificare"));
+				if(dfind!=null)
+				{
+					view.stampaDipendente(dfind);
+					Dipendente dmod;
+					if(dfind instanceof Manager)
+						dmod = view.mascheraModifica(dfind, new Manager());
+					else
+						dmod = view.mascheraModifica(dfind, new Dipendente());
+
+					if(!dfind.equals(dmod))
+						crud.modifica(dfind, dmod);
+					else 
+						view.stampaStringa("Nessuna modifica e' stata apportata");
+				}
+				else
+					view.stampaStringa("Codice fiscale non valido");
 				break;
 			case 5:
 				view.stampaDipendente(crud.getMap());

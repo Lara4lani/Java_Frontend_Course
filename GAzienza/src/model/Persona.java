@@ -44,11 +44,20 @@ public class Persona {
 	
 	//questo e quello sotto sovrascrivono il metodo di object .equals e fanno in modo che vengano 
 	//messi a confronto tutti i campi di un oggetto per controllare se due oggetti sono uguali
+	
+	
+	//costruttore parametrizzato
+	public Persona(String nome, String cognome, int eta, String cf) {
+		this.nome = nome;
+		this.cognome = cognome;
+		this.eta = eta;
+		this.cf = cf;
+	}
+	
 	@Override
 	public int hashCode() {
 		return Objects.hash(cf, cognome, eta, nome);
 	}
-	
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -61,15 +70,6 @@ public class Persona {
 		return Objects.equals(cf, other.cf) && Objects.equals(cognome, other.cognome) && eta == other.eta
 				&& Objects.equals(nome, other.nome);
 	}
-	
-	//costruttore parametrizzato
-	public Persona(String nome, String cognome, int eta, String cf) {
-		this.nome = nome;
-		this.cognome = cognome;
-		this.eta = eta;
-		this.cf = cf;
-	}
-	
 	//costruttore senza parametri
 	public Persona() {
 		
