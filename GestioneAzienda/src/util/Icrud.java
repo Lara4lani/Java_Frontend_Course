@@ -15,5 +15,4 @@ public interface Icrud { //le variabili dichiarate qui sono tutte costanti (fina
 	public Dipendente cerca(String cf);
 	public void elimina(Dipendente d);
 	public void modifica(Dipendente dold, Dipendente dnew);
-	public void promozione(Dipendente d, Manager m);
 }

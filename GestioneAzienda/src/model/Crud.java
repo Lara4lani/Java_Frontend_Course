@@ -10,7 +10,7 @@ import util.Icrud;
 public class Crud implements Icrud{
 
 	private HashMap <Integer, Dipendente> hmap =  new HashMap<Integer, Dipendente>();
-	int key = 0;
+	int key;
 	
 	//sovrascrivo i metodi astratti creati nell'interfaccia
 	public void inserisci(Dipendente d)
@@ -34,9 +34,10 @@ public class Crud implements Icrud{
 		//va a verificare se il valore successivo e' uguale a d
 		//soluzione per il fatto che nn eliminava mai il primo elemento di hashmap
 		//entry=abbinamento chiave-valore
-		Iterator<Entry<Integer, Dipendente>>iterator = hmap.entrySet().iterator();
-		while(iterator.hasNext())
-		{
+		Iterator<Entry<Integer, Dipendente>>iterator = hmap.entrySet().iterator();//entry set verifica se ci sono valori nel hashmap
+		while(iterator.hasNext())//permette di scorrere i valori del hashmap
+		{//next serve per andare al valore successivo in quanto get values parte da -1
+		//vediamo se quel valore e' uguale a d e in caso lo rimuoviamo
 			if(iterator.next().getValue().equals(d))
 				iterator.remove();
 		}
@@ -47,17 +48,6 @@ public class Crud implements Icrud{
 		for(Integer k : hmap.keySet())
 			if(hmap.get(k).equals(dold))
 				hmap.replace(k, dold, dnew);
-	}
-	
-	public void promozione(Dipendente d, Manager m)
-	{
-		Iterator<Entry<Integer, Dipendente>>iterator = hmap.entrySet().iterator();
-		while(iterator.hasNext())
-		{
-			if(iterator.next().getValue().equals(d))
-				iterator.remove();
-		}
-		hmap.put(key, m);
 	}
 	
 	public HashMap<Integer, Dipendente> getMap()

@@ -90,9 +90,6 @@ public class Main {
 					view.stampaStringa("Codice fiscale non valido");
 				break;
 			case 5:
-				view.stampaDipendente(crud.getMap());
-				break;
-			case 6:
 				dfind = crud.cerca(view.leggiStringa("Scrivi il codice fiscale del dipendente da promuovere"));
 				if(dfind!=null)
 				{
@@ -105,7 +102,7 @@ public class Main {
 					{
 						if(view.leggiStringa("Vuoi promuovere a manager questo dipendente?").equalsIgnoreCase("si"))
 						{
-							
+
 							Dipendente d1 = new Dipendente();
 							d1 = dfind;
 							Manager dpromosso = new Manager();
@@ -113,7 +110,7 @@ public class Main {
 							view.stampaDipendente(dpromosso);
 							if(view.leggiStringa("Confermi la promozione?").equalsIgnoreCase("si"))
 							{
-								crud.promozione(d1, dpromosso);
+								crud.modifica(d1, dpromosso);
 								view.stampaStringa("Promozione eseguita");
 							}
 							else
@@ -125,6 +122,9 @@ public class Main {
 				}
 				else
 					view.stampaStringa("Codice fiscale non valido");
+				break;
+			case 6:
+				view.stampaDipendente(crud.getMap());
 				break;
 			case 0:
 				flag = false;

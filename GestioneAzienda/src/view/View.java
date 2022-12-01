@@ -84,8 +84,8 @@ public class View {
 		System.out.println("2. Ricerca");
 		System.out.println("3. Elimina");
 		System.out.println("4. Modifica");
-		System.out.println("5. Stampa");
-		System.out.println("6. Promuovi");
+		System.out.println("5. Promuovi");
+		System.out.println("6. Stampa");	
 		System.out.println("0. ESCI");
 		return leggiNumero("Scegli l'operazione da eseguire");
 	}
@@ -164,12 +164,15 @@ public class View {
 	{
 		if(m instanceof Manager)
 		{
-			m.setNome(d.getCognome());
+			m.setNome(d.getNome());
 			m.setCognome(d.getCognome());
 			m.setEta(d.getEta());
 			m.setCf(d.getCf());
-			String stipendio = leggiStringa("stipendio ["+m.getStipendio()+"]");
+			String stipendio = leggiStringa("stipendio ["+d.getStipendio()+"]");
+			if(!stipendio.isEmpty())
 				m.setStipendio(Double.parseDouble(stipendio));
+			else
+				m.setStipendio(d.getStipendio());
 			
 			String ruolo = leggiStringa("ruolo ["+((Manager)m).getRuolo()+"]");
 			((Manager)m).setRuolo(ruolo);
@@ -181,6 +184,7 @@ public class View {
 	{
 		System.out.println(d);
 	}
+	
 
 	public void stampaDipendente(HashMap<Integer, Dipendente> hmap)
 	{
