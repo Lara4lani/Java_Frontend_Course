@@ -49,6 +49,17 @@ public class Crud implements Icrud{
 				hmap.replace(k, dold, dnew);
 	}
 	
+	public void promozione(Dipendente d, Manager m)
+	{
+		Iterator<Entry<Integer, Dipendente>>iterator = hmap.entrySet().iterator();
+		while(iterator.hasNext())
+		{
+			if(iterator.next().getValue().equals(d))
+				iterator.remove();
+		}
+		hmap.put(key, m);
+	}
+	
 	public HashMap<Integer, Dipendente> getMap()
 	{
 		return hmap;

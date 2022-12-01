@@ -1,5 +1,6 @@
 package view;
 
+
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Scanner;
@@ -17,7 +18,6 @@ public class View {
 	{
 		System.out.println(s);
 		return input.nextLine();
-
 	}
 
 	public int leggiNumero(String s)
@@ -85,6 +85,7 @@ public class View {
 		System.out.println("3. Elimina");
 		System.out.println("4. Modifica");
 		System.out.println("5. Stampa");
+		System.out.println("6. Promuovi");
 		System.out.println("0. ESCI");
 		return leggiNumero("Scegli l'operazione da eseguire");
 	}
@@ -113,7 +114,7 @@ public class View {
 
 	public Dipendente mascheraModifica(Dipendente dold, Dipendente dnew)
 	{
-		
+
 		String nome = leggiStringa("nome ["+dold.getNome()+"]");
 		if(!nome.isEmpty())
 			dnew.setNome(nome);
@@ -152,10 +153,28 @@ public class View {
 			else
 				((Manager)dnew).setRuolo(((Manager)dold).getRuolo());
 		}
-		
+		System.out.println(dnew);
+
 		if(leggiStringa("Confermi le modifiche?").equalsIgnoreCase("si"))
 			return dnew;
 		return dold;
+	}
+
+	public Dipendente mascheraPromozione(Dipendente d, Manager m)
+	{
+		if(m instanceof Manager)
+		{
+			m.setNome(d.getCognome());
+			m.setCognome(d.getCognome());
+			m.setEta(d.getEta());
+			m.setCf(d.getCf());
+			String stipendio = leggiStringa("stipendio ["+m.getStipendio()+"]");
+				m.setStipendio(Double.parseDouble(stipendio));
+			
+			String ruolo = leggiStringa("ruolo ["+((Manager)m).getRuolo()+"]");
+			((Manager)m).setRuolo(ruolo);
+		}
+		return m;
 	}
 
 	public void stampaDipendente(Dipendente d)
