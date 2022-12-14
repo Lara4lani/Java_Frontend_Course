@@ -132,11 +132,12 @@ public class Lab {
 		int min = 0;
 		int max = 0;
 		int count = 0;
+		String scelta;
 
 		do
 		{
 			numeri = leggiNumero("scegli un numero");
-			System.out.println("vuoi continuare?  y o n");
+			scelta = leggiStringa("vuoi continuare?  y o n");
 			if(numeri > max)
 			{
 				max = numeri;
@@ -151,7 +152,7 @@ public class Lab {
 				min = numeri;
 			}
 		}
-		while(input.next().equals("y"));
+		while(scelta.equalsIgnoreCase("y"));
 		System.out.println("il valore massimo e' " + max + " il valore minimo e' " + min );
 
 	}
