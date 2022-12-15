@@ -1,11 +1,9 @@
 package model;
 
-
-
 import java.util.Date;
 import java.util.Objects;
 
-public class persona {
+public class Persona {
 
 	private String nome;
 	private String cognome;
@@ -50,9 +48,13 @@ public class persona {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		persona other = (persona) obj;
+		Persona other = (Persona) obj;
 		return Objects.equals(cf, other.cf) && Objects.equals(cognome, other.cognome) && datadinascita == other.datadinascita
 				&& Objects.equals(nome, other.nome);
+	}
+	@Override
+	public String toString() {
+		return "nome=" + nome + ", cognome=" + cognome + ", datadinascita=" + datadinascita + ", cf=" + cf;
 	}
 	
 	

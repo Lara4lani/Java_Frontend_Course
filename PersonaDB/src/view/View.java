@@ -8,9 +8,9 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Scanner;
 
-import model.persona;
+import model.Persona;
 
-public class view {
+public class View {
 
 	private Scanner input=new Scanner(System.in);
 
@@ -81,26 +81,65 @@ public class view {
 		return leggiNumero("Scegli l'operazione da eseguire");
 	}
 
-	public void stampaPersone(ResultSet rs) throws SQLException
+	public void stampaPersone(ResultSet rs) 
 	{
-		ResultSetMetaData rsmd = rs.getMetaData();
-		int columnsNumber = rsmd.getColumnCount();
-		while (rs.next()) {
-			for (int i = 1; i <= columnsNumber; i++) {
-				if (i > 1) System.out.print(",  ");
-				String columnValue = rs.getString(i);
-				System.out.print(rsmd.getColumnName(i)+ ": " + columnValue );
+		try
+		{
+			ResultSetMetaData rsmd = rs.getMetaData();
+			int columnsNumber = rsmd.getColumnCount();
+			while (rs.next()) {
+				for (int i = 1; i <= columnsNumber; i++) {
+					if (i > 1) System.out.print(",  ");
+					String columnValue = rs.getString(i);
+					System.out.print(rsmd.getColumnName(i)+ ": " + columnValue );
+				}
+				System.out.println("");
 			}
-			System.out.println("");
+		}catch(SQLException e)
+		{
+			System.out.println(e);
 		}
+		
+	}
+	
+	public void stampaPersona(Persona p)
+	{
+		System.out.println(p);
 	}
 
-	public void macheraInserimento(persona p)
+	public void macheraInserimento(Persona p)
 	{
 		p.setNome(leggiStringa("inserisci il nome"));
 		p.setCognome(leggiStringa("inserisci il cognome"));
 		p.setDataDiNascita(convertiData(leggiStringa("inserisci la data di nascita nel seguente formato: yyyy-mm-dd")));
 		p.setCf(leggiStringa("inserisci il codice fiscale"));	
 	}
+	
+	public void mascheraModificaPersona(ResultSet rs, Persona p) {
+		String nome;
+		String cognome;
+		Date nascita;
+		String cf;
+		try {
+			while(rs.next()) {
+				nome = leggiStringa("Inserisci il nuovo nome:");
+				if(!nome.isEmpty()) p.setNome(nome);
+				else p.setNome(rs.getString("nome"));
+				cognome = leggiStringa("Inserisci il nuovo cognome:");
+				if(!cognome.isEmpty()) p.setCognome(cognome);
+				else p.setCognome(rs.getString("cognome"));
+				nascita = convertiData(leggiStringa("inserisci la data di nascita nel seguente formato: yyyy-mm-dd"));
+				if(nascita!=null) p.setDataDiNascita(nascita);
+				else p.setDataDiNascita(rs.getDate("data_di_nascita"));
+				cf = leggiStringa("Inserisci il nuovo codice fiscale:");
+				if(!cf.isEmpty()) p.setCf(cf);
+				else p.setCf(rs.getString("codice_fiscale"));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
 
 }
