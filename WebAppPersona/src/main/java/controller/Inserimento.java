@@ -72,7 +72,7 @@ public class Inserimento extends HttpServlet {
 		RequestDispatcher rd;
 		request.setAttribute("persona", p);
 		request.setAttribute("etichetta", "complimenti");
-		rd=request.getRequestDispatcher("Visualizza.jsp");
+		rd=request.getRequestDispatcher("ConfermaInserimento.jsp");
 		rd.forward(request, response);
 	}
 

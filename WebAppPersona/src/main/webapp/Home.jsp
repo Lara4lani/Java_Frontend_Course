@@ -24,17 +24,7 @@ body {
 <a href="Gestione"> Gestisci</a>
 <br>
 
-<form method="POST" action="Inserimento">
-<input placeholder="inserisci il nome" type="text" name="nome">
-<br><br>
-<input placeholder="inserisci il cognome" type="text" name="cognome">
-<br><br>
-<input type="date" name="datadinascita">
-<br><br>
-<input placeholder="inserisci il codifce fiscale" type="text" name="cf">
-<button type="reset">Cancella</button>
-<button type="submit">Invia</button>
-</form>
+<a href="Registrazione.jsp"> Registrati</a>
 
 </body>
 </html>
