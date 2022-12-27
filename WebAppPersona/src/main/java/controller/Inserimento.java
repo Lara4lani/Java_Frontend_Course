@@ -37,6 +37,8 @@ public class Inserimento extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		
+	
 	
 	}
 
@@ -69,7 +71,8 @@ public class Inserimento extends HttpServlet {
 		
 		RequestDispatcher rd;
 		request.setAttribute("persona", p);
-		rd=request.getRequestDispatcher("ConfermaInserimento.jsp");
+		request.setAttribute("etichetta", "complimenti");
+		rd=request.getRequestDispatcher("Visualizza.jsp");
 		rd.forward(request, response);
 	}
 
