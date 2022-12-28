@@ -17,7 +17,7 @@ table {
 
 <body>
 
-	<h1>Tutte le persone inserite:</h1>
+	<h1>Persone inserite:</h1>
 	<table>
 		<tr>
 			<td><b>NOME</b></td>
@@ -34,8 +34,8 @@ table {
 				<td>${list.cf}</td>
 
 
-				<td><a href="Modifica?cf=${array.cf}"><b>modifica</b></a></td>
-				<td><a href="Elimina?cf=${array.cf }"><b>elimina</b> </a></td>
+				<td><a href="Modifica?cf=${list.cf }"><b>modifica</b></a></td>
+				<td><a href="Elimina?cf=${list.cf }"><b>elimina</b> </a></td>
 			</tr>
 
 		</c:forEach>

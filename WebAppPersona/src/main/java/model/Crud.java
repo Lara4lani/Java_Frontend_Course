@@ -1,6 +1,7 @@
 package model;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -49,7 +50,42 @@ public class Crud {
 			}
 		}
 		
-		
+
+		public void eliminaPersona(String s)
+		{
+			String sql = "DELETE  FROM persone WHERE CF='"+s+"'";//preparo la query
+			PreparedStatement ps = null;//oggetto prepared statement per gestire i oaramentri dellaquery (?)
+
+			try {
+
+				ps = conn.prepareStatement(sql);
+				ps.execute();
+				ps.close();
+
+			}catch(SQLException e) 
+			{
+				e.printStackTrace();
+			}
+		}
+
+		public void modificaPersona( Persona p) {
+			String sql = "UPDATE persone SET nome = ?, cognome = ?, datadinascita = ?, cf = ? WHERE Cf='";
+			PreparedStatement ps = null;
+			
+			try {
+				ps = conn.prepareStatement(sql);
+				
+				ps.setString(1, p.getNome());
+				ps.setString(2, p.getCognome());
+				ps.setDate(3, (Date) p.getDatadinascita());
+				ps.setString(4, p.getCf());
+				ps.executeUpdate();
+				ps.close();
+				
+			} catch(SQLException e) {
+				e.printStackTrace();
+			}
+		}
 		
 		public ResultSet getPersone() {
 			String sql = "SELECT * FROM persone";

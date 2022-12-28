@@ -8,6 +8,7 @@
 </head>
 <body>
 
+<h1>Registrati</h1>
 
 <form method="POST" action="Inserimento">
 <input placeholder="inserisci il nome" type="text" name="nome">

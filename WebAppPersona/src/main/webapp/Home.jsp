@@ -18,7 +18,7 @@ body {
 </head>
 <body>
 
-<h1>Benvenuti!</h1>
+<h1>Home</h1>
 
 <!-- Invio richiesta di tipo GET  -->
 <a href="Gestione"> Gestisci</a>
