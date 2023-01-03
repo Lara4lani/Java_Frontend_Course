@@ -38,14 +38,12 @@ public class Elimina extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 	
+
+		request.getAttribute("listapersone");
 		String cf = request.getParameter("cf");
 		crud.eliminaPersona(cf);
 		RequestDispatcher rd;
-		
-		rd=request.getRequestDispatcher("ConfermaElimina.jsp");
-
-		request.getAttribute("listapersone");
-		
+		rd=request.getRequestDispatcher("ConfermaElimina.jsp");		
 		rd.forward(request, response);
 	}
 

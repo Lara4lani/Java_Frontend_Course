@@ -68,8 +68,8 @@ public class Crud {
 			}
 		}
 
-		public void modificaPersona( Persona p) {
-			String sql = "UPDATE persone SET nome = ?, cognome = ?, datadinascita = ?, cf = ? WHERE Cf='";
+		public void modificaPersona(Persona p, String cf) {
+			String sql = "UPDATE persone SET nome = ?, cognome = ?, datadinascita = ?, cf = ? WHERE Cf='"+cf+"'";
 			PreparedStatement ps = null;
 			
 			try {
@@ -100,6 +100,24 @@ public class Crud {
 				e.printStackTrace();
 			}
 			return rs;
+		}
+		
+		public Persona getPersonaByCf(String cf)
+		{
+			Persona p = new Persona();
+			String sql = "SELECT * FROM persone where cf="+cf+"'";
+			PreparedStatement ps = null;
+			ResultSet rs = null;
+			try {
+				ps = conn.prepareStatement(sql);
+				rs = ps.executeQuery();
+				
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+	        return p;
 		}
 
 }

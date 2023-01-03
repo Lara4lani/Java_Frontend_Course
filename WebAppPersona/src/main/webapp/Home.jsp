@@ -13,6 +13,17 @@ body {
 	width: 50%;
 	text-align: center;
 }
+h1{
+font-size: 90px;
+}
+
+a{
+text-decoration: none;	
+}
+
+button{
+
+}
 </style>
 
 </head>
@@ -21,10 +32,10 @@ body {
 <h1>Home</h1>
 
 <!-- Invio richiesta di tipo GET  -->
-<a href="Gestione"> Gestisci</a>
+<button><a href="Gestione"> Gestisci</a></button>
 <br>
 
-<a href="Registrazione.jsp"> Registrati</a>
+<button><a href="Registrazione.jsp"> Registrati</a></button>
 
 </body>
 </html>

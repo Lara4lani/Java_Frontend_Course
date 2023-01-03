@@ -32,9 +32,9 @@ table {
 				<td>${list.cognome}</td>
 				<td>${list.datadinascita}</td>
 				<td>${list.cf}</td>
+	
 
-
-				<td><a href="Modifica?cf=${list.cf }"><b>modifica</b></a></td>
+				<td><a href="Modifica?nome=${list.nome}&&cognome=${list.cognome}&&datadinascita=${list.datadinascita}&&cf=${list.cf}"><b>modifica</b></a></td>
 				<td><a href="Elimina?cf=${list.cf }"><b>elimina</b> </a></td>
 			</tr>
 

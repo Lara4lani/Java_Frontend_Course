@@ -9,6 +9,7 @@ public class Persona {
 	private Date datadinascita;
 	private String cf;
 	
+
 	public String getNome() {
 		return nome;
 	}
@@ -34,6 +35,13 @@ public class Persona {
 		this.cf = cf;
 	}
 	
+	
+	public Persona(String nome2, String cognome2, String datadinascita2, String cf2) {
+		// TODO Auto-generated constructor stub
+	}
+	public Persona() {
+		// TODO Auto-generated constructor stub
+	}
 	
 
 }

@@ -4,13 +4,13 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>IEliminazione completa</title>
 </head>
 <body>
 
 <h1>Eliminazione completata!</h1>
 <a href="Home.jsp">Home</a>
-<a href="Gestione"> Elenco</a>
+<a href="Gestione">Elenco </a>
 
 </body>
 </html>

@@ -9,5 +9,6 @@
 <body>
 <h1>Registrazione avvenuta con successo</h1>
 <a href="Home.jsp">Home</a>
+<a href="Registrazione.jsp"> Registrati</a>
 </body>
 </html>
