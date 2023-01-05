@@ -18,7 +18,7 @@
 <input  type="text" name="cf" value="${cf	 }">
 <h2>Confermi di voler eliminare questa persona dall'elenco?</h2>
 <button type="reset">no</button>
-<button type="submit" ><a href="ConfermaElimina.jsp]">si</a> </button>
+<button type="submit" onclick="ConfermaElimina.jsp">si</button>
 </form>
 
 </body>
