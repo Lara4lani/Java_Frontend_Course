@@ -53,7 +53,7 @@ public class Elimina extends HttpServlet {
 		request.setAttribute("cf", cf);
 		crud.eliminaPersona(cf);
 		RequestDispatcher rd;
-		rd=request.getRequestDispatcher("FormElimina.jsp");		
+		rd=request.getRequestDispatcher("ConfermaElimina.jsp");		
 		rd.forward(request, response);
 	}
 
