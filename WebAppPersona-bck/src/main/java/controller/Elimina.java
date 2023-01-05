@@ -40,10 +40,20 @@ public class Elimina extends HttpServlet {
 	
 
 		request.getAttribute("listapersone");
+		String nome = request.getParameter("nome");
+		String cognome = request.getParameter("cognome");
+		String datadinascita = request.getParameter("datadinascita");
 		String cf = request.getParameter("cf");
+		
+		
+		
+		request.setAttribute("nome", nome);
+		request.setAttribute("cognome", cognome);
+		request.setAttribute("datadinascita", datadinascita);
+		request.setAttribute("cf", cf);
 		crud.eliminaPersona(cf);
 		RequestDispatcher rd;
-		rd=request.getRequestDispatcher("ConfermaElimina.jsp");		
+		rd=request.getRequestDispatcher("FormElimina.jsp");		
 		rd.forward(request, response);
 	}
 
