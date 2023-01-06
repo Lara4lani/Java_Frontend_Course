@@ -3,39 +3,26 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
+   
+
 <head>
 <meta charset="ISO-8859-1">
+ <link rel='stylesheet' type='text/css' media='screen' href='style.css'>
+     <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
+ 
 <title>Home</title>
 
-<style>
-body {
-	margin: auto;
-	width: 50%;
-	text-align: center;
-}
-h1{
-font-size: 90px;
-}
-
-a{
-text-decoration: none;	
-}
-
-button{
-
-}
-</style>
 
 </head>
 <body>
 
-<h1>Home</h1>
+<h1>Gestione Utenti</h1>
 
 <!-- Invio richiesta di tipo GET  -->
-<button><a href="Gestione"> Gestisci</a></button>
+<button class="btn"><a href="Gestione"> Gestisci</a></button>
 <br>
 
-<button><a href="Registrazione.jsp"> Registrati</a></button>
+<button class="btn"><a href="Registrazione.jsp"> Registrati</a></button>
 
 </body>
 </html>

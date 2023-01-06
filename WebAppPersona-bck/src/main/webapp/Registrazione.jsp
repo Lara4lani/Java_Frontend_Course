@@ -4,7 +4,11 @@
 <!DOCTYPE html>
 <html>
 <head>
+
 <meta charset="ISO-8859-1">
+ <link rel='stylesheet' type='text/css' media='screen' href='style.css'>
+     <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
+ 
 <title>Insert title here</title>
 </head>
 <body>
@@ -18,7 +22,7 @@
 <br><br>
 <input type="date" name="datadinascita" required="required">
 <br><br>
-<input placeholder="inserisci il codifce fiscale" type="text" name="cf" required="required">
+<input placeholder="inserisci il codifce fiscale" type="text" name="cf" required="required"> <br><br>	
 <button type="reset">Cancella</button>
 <button type="submit" onclick="ConfermaInserimento.jsp">Invia</button>
 </form>
