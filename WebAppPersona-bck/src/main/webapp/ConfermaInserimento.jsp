@@ -12,7 +12,11 @@
 </head>
 <body>
 <h1>Registrazione avvenuta con successo</h1>
-<a href="Home.jsp">Home</a>
-<a href="Registrazione.jsp"> Registrati</a>
+
+
+<button class="btn"><a class="suc" href="Home.jsp">Home</a>/button>
+<br>
+
+<button class="btn"><a  class="succ" href="Registrazione.jsp"> Registrati</a></button>
 </body>
 </html>

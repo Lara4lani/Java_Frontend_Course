@@ -23,9 +23,12 @@
 <input type="date" name="datadinascita" required="required">
 <br><br>
 <input placeholder="inserisci il codifce fiscale" type="text" name="cf" required="required"> <br><br>	
-<button type="reset">Cancella</button>
+<button type="reset" onclick="Gestione">Cancella</button>
 <button type="submit" onclick="ConfermaInserimento.jsp">Invia</button>
+
 </form>
+<br><br><br>
+<a href="Home.jsp">Home</a>
 
 </body>
 </html>

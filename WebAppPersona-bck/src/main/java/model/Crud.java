@@ -14,9 +14,9 @@ public class Crud {
 		static final String DB_URL ="jdbc:mysql://localhost:3306/gestione_persona";
 		static final String UserDB ="root";
 		 //@NOTE--> dont delete MAMP 
-		 static final String PasswordDB ="root";
+		 //static final String PasswordDB ="root";
 		// xampp
-		//static final String PasswordDB =""; 
+		static final String PasswordDB =""; 
 		
 		
 		private static Connection conn = null;

@@ -19,10 +19,16 @@
 <h1>Gestione Utenti</h1>
 
 <!-- Invio richiesta di tipo GET  -->
-<button class="btn"><a href="Gestione"> Gestisci</a></button>
-<br>
+<div class="btn">
+<a href="Gestione"> Gestisci</a>
+</div>
 
-<button class="btn"><a href="Registrazione.jsp"> Registrati</a></button>
+
+<br>
+<div class="btn">
+<a href="Registrazione.jsp"> Registrati</a>
+</div>
+
 
 </body>
 </html>

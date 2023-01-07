@@ -12,7 +12,11 @@
 <body>
 
 <h1>Eliminazione completata!</h1>
-<a href="Home.jsp">Home</a>
-<a href="Gestione">Elenco </a>
+
+
+<button class="btn"><a class="suc" href="Home.jsp">Home</a></button>
+<br>
+
+<button class="btn"><a  class="succ" href="Gestione"> Elenco</a></button>
 </body>
-</html>
+</html>	

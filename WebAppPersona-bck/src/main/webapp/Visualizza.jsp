@@ -22,6 +22,8 @@
 			<th><b>COGNOME</b></th>
 			<th><b>DATA DI NASCITA</b></th>
 			<th><b>CF</b></th>
+			<th></th>
+			<th></th>
 		</tr>
 
 		<c:forEach var="list" items="${listapersone}">
@@ -33,7 +35,7 @@
 	
 
 				<td><a href="Modifica?nome=${list.nome}&&cognome=${list.cognome}&&datadinascita=${list.datadinascita}&&cf=${list.cf}"><b>modifica</b></a></td>
-				<td><a href="Elimina?nome=${list.nome}&&cognome=${list.cognome}&&datadinascita=${list.datadinascita}&&cf=${list.cf}"><b>elimina</b> </a></td>
+				<td><a class="del" href="Elimina?nome=${list.nome}&&cognome=${list.cognome}&&datadinascita=${list.datadinascita}&&cf=${list.cf}"><b>elimina</b> </a></td>
 			</tr>
 
 		</c:forEach>

@@ -1,2 +1,174 @@
-@charset "ISO-8859-1";
+@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+
+
+body{
+    margin: 10% auto;
+	width: 50%;
+	text-align: center;
+  	background-color: #6dd4ff
+}
+
+h1{
+    font-family:'Raleway', sans-serif;
+    color: white;
+    font-size: 90px;
+    font-weight: lighter;
+}
+
+
+
+/*HOME.HTML*/
+a{
+    text-decoration: none;
+    color: white;
+    
+}
+
+
+.btn{
+    padding: 2.5%;
+    font-size: 20px;
+    border-radius: 7%;
+    background-color: rgb(135, 170, 216);
+    font-family: 'Courier New', Courier, monospace;
+    color: white;
+    border: solid 2px white;
+    width: 20%;
+    height: 2%;
+    margin: auto 37%;
+    transition-duration: 0.4s;
+    -webkit-transition-duration: 0.4s;
+}
+
+
+
+.btn:hover{
+    border-style: initial;
+    background-color: white;
+    
+
+}
+
+.button:after {
+    content: "";
+    display: block;
+    position: absolute;
+    border-radius: 4em;
+    left: 0;
+    top:0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: all 0.5s;
+    box-shadow: 0 0 10px 40px white;
+}
+
+.btn:active:after {
+    box-shadow: 0 0 0 0 white;
+    position: absolute;
+    border-radius: 4em;
+    left: 0;
+    top:0;
+    opacity: 1;
+    transition: 0s;
+}
+.btn:active {
+    top: 1px;
+}
+
+.btn:visited{
+    color: white;
+}
+
+a:hover{
+    color: rgb(56, 91, 136);
+    font-weight: bolder;
+
+}
+
+/*TABLE.HTML*/
+table{
+    border-collapse: collapse;
+    width: 100%;
+    background-color: white;
+    border-radius:6px;
+    box-shadow:8px 10px 15px rgb(43, 43, 43);
+}
+
+th{
+    background-color: rgb(58, 81, 111);
+    color: white;
+    font-family:'Raleway', sans-serif;
+    font-weight: 300;
+    text-align: left;
+    padding: 10px;
+    border-top: none;
+}
+
+td{
+    text-align: left;
+    padding: 10px;
+    font-family:'Raleway', sans-serif;
+    font-weight: 300;
+    color: rgb(119, 119, 119);
+}
+
+td > a{
+    color:  rgb(58, 81, 111);
+}
+
+td > a.del{
+    color: red;
+}
+
+
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/*FORM REGISTRAZIONE.HTML*/
+.form{
+    background-color: white;
+    width: 60%;
+    height: 65%;
+    margin: 10% auto;
+    padding: 4% 10%;
+    border-radius: 2%;
+    box-shadow:8px 10px 15px rgb(43, 43, 43);   
+}
+
+div.form > h3{
+    text-align: left;
+    font-family:'Raleway', sans-serif;
+    font-size: x-large;
+    color: rgb(58, 81, 111);
+}
+
+input{
+    width: 100%;
+    padding: 3%;
+    border: 2px solid #f2f2f2;
+    border-radius: 2%;
+    box-shadow: 3px 5px 10px lightgrey;
+}
+
+.formbtn{
+    border: 2px solid #f2f2f2;
+    border-radius: 4%;
+    padding: 2%;
+    color: rgb(87, 87, 87);
+}
+
+/*CONFERMA INSERIMENTO.HTML*/
+.suc{
+    font-size: 50px;
+}
+
+a{
+    font-size: 20px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+
 
