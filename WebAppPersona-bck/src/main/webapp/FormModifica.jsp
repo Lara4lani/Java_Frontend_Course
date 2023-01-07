@@ -12,19 +12,26 @@
 </head>
 <body>
 
-	
-	<form action="Modifica" method="post">
-		<label>NOME</label>
-		<input  value="${nome}" type="text" name="nome"><br>
-		<label>COGNOME</label>
-		<input value="${cognome}" type="text" name="cognome"><br>
-		<label>DATA DI NASCITA</label>
-		<input value="${datadinascita}" type="date" name="datadinascita"><br>
-		<label>CODICE FISCALE</label>
-		<input value="${cf}" type="text" name="cf"><br>
-		<button type="reset">Cancella</button>
-		<button type="submit" onclick="Gestione">Invia</button>
-	</form>
+	    <div class="form">
+        <h3>MODIFICA I DATI</h3>
+        <form method="POST" action="Modifica">
+            <input  value="${nome}" type="text" name="nome" required="required">
+            <br><br>
+            <input value="${cognome}" type="text" name="cognome" required="required">
+            <br><br>
+            <input   value="${datadinascita}" type="date" name="datadinascita" required="required">
+            <br><br>
+            <input value="${cf}" type="text" name="cf" required="required">
+            <br><br>
+            <button class="formbtn" type="reset">Cancella</button>
+            <button class="formbtn" type="submit" onclick="Gestione">Invia</button>
+         
+        </form>
 
+<div class="footer">
+<p>&copy;  Lara Misia Forlani</p>
+<a href="https://www.linkedin.com/in/lara-misia-forlani-3b4612234/" target="_blank">LinkedIn</a>
+<a href="https://github.com/la-rika" target="_blank">GitHub</a>
+</div>
 </body>
 </html>

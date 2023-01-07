@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+    pageEncoding="ISO-8859-1" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,12 +11,24 @@
 </head>
 <body>
 
-<h1>Eliminazione completata!</h1>
+
+    <h1 class="suc"> Eliminazione completata!</h1>
 
 
-<button class="btn"><a class="suc" href="Home.jsp">Home</a></button>
+
+<button class="btn"><a href="Home.jsp">Home</a></button>
 <br>
 
-<button class="btn"><a  class="succ" href="Gestione"> Elenco</a></button>
+<button class="btn"><a  href="Gestione"> Elenco</a></button>
+
+ 
+
+
+<div class="footer">
+<p>&copy;  Lara Misia Forlani</p>
+<a href="https://www.linkedin.com/in/lara-misia-forlani-3b4612234/" target="_blank">LinkedIn</a>
+<a href="https://github.com/la-rika" target="_blank">GitHub</a>
+</div>
+
 </body>
 </html>	

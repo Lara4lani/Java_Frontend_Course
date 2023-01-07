@@ -30,5 +30,11 @@
 </div>
 
 
+<div class="footer">
+<p>&copy;  Lara Misia Forlani</p>
+<a href="https://www.linkedin.com/in/lara-misia-forlani-3b4612234/" target="_blank">LinkedIn</a>
+<a href="https://github.com/la-rika" target="_blank">GitHub</a>
+</div>
+
 </body>
 </html>
