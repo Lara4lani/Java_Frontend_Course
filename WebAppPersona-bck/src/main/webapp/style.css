@@ -15,6 +15,22 @@ h1 {
 	font-weight: lighter;
 }
 
+.error{
+	font-family: 'Raleway', sans-serif;
+	color: red;
+	font-size: 60px;
+	font-weight: lighter;
+}
+
+a.back {
+	color: white;
+	font-size: 20px;
+	font-family: 'Courier New', Courier, monospace;
+}
+
+a.back:hover{
+	color: white;
+}
 /*HOME.HTML*/
 a {
 	text-decoration: none;
@@ -135,7 +151,7 @@ tr:nth-child(even) {
 	font-size: 17px;
 	color: #80afc4;
 	padding: 1%;
-}	
+}
 
 .footer>a {
 	font-family: 'Raleway', sans-serif;

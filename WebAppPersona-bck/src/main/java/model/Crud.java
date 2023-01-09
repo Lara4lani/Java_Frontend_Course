@@ -34,60 +34,84 @@ public class Crud {
 		}
 		
 		
-		public void inserimentoPersona(Persona p) {
+		public int inserimentoPersona(Persona p) {
 			String sql = "INSERT INTO persone (nome, cognome, datadinascita, cf) VALUES (?,?,?,?)";
 			PreparedStatement ps = null;
+			int num = 0;
 			
 			try {
 				ps = conn.prepareStatement(sql);
 				
 				ps.setString(1, p.getNome());
 				ps.setString(2, p.getCognome());
-				ps.setDate(3, p.getDatadinascita());
+				ps.setDate(3, p.getDatadinascita() );
 				ps.setString(4, p.getCf());
 				
-				ps.executeUpdate();
+				num = ps.executeUpdate(); //ogni volta che esegue la query aumenta di uno
 				ps.close();
 			}catch(SQLException e) {
 				e.printStackTrace();
 			}
+			return num;
 		}
 		
 
-		public void eliminaPersona(String s)
+		public int eliminaPersona(String s)
 		{
 			String sql = "DELETE  FROM persone WHERE CF='"+s+"'";//preparo la query
 			PreparedStatement ps = null;//oggetto prepared statement per gestire i oaramentri dellaquery (?)
-
+			int num = 0;
 			try {
 
 				ps = conn.prepareStatement(sql);
-				ps.execute();
+				
+				num = ps.executeUpdate();
 				ps.close();
 
 			}catch(SQLException e) 
 			{
 				e.printStackTrace();
 			}
+			return num;
+		}
+		public ResultSet CercaCf(String s)
+		{
+			String sql = "SELECT *  FROM persone WHERE CF='"+s+"'";//preparo la query
+			PreparedStatement ps = null;//oggetto prepared statement per gestire i oaramentri dellaquery (?)
+			ResultSet rs = null;
+			try {
+
+				ps = conn.prepareStatement(sql);
+				
+				rs = ps.executeQuery();
+			
+
+			}catch(SQLException e) 
+			{
+				e.printStackTrace();
+			}
+			return rs;
 		}
 
-		public void modificaPersona(Persona p, String cf) {
+
+		public int modificaPersona(Persona p, String cf) {
 			String sql = "UPDATE persone SET nome = ?, cognome = ?, datadinascita = ?, cf = ? WHERE Cf='"+cf+"'";
 			PreparedStatement ps = null;
-			
+			int num=0;
 			try {
 				ps = conn.prepareStatement(sql);
 				
 				ps.setString(1, p.getNome());
 				ps.setString(2, p.getCognome());
-				ps.setDate(3, (Date) p.getDatadinascita());
+				ps.setDate(3, p.getDatadinascita() );
 				ps.setString(4, p.getCf());
-				ps.executeUpdate();
+				num = ps.executeUpdate();
 				ps.close();
 				
 			} catch(SQLException e) {
 				e.printStackTrace();
 			}
+			return num;
 		}
 		
 		public ResultSet getPersone() {
@@ -105,22 +129,6 @@ public class Crud {
 			return rs;
 		}
 		
-		public Persona getPersonaByCf(String cf)
-		{
-			Persona p = new Persona();
-			String sql = "SELECT * FROM persone where cf="+cf+"'";
-			PreparedStatement ps = null;
-			ResultSet rs = null;
-			try {
-				ps = conn.prepareStatement(sql);
-				rs = ps.executeQuery();
-				
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-
-	        return p;
-		}
+	
 
 }

@@ -42,6 +42,13 @@ public class Persona {
 	public Persona() {
 		// TODO Auto-generated constructor stub
 	}
+	@Override
+	public String toString() {
+		return "Persona [nome=" + nome + ", cognome=" + cognome + ", datadinascita=" + datadinascita + ", cf=" + cf
+				+ "]";
+	}
+	
+	
 	
 
 }

@@ -18,20 +18,41 @@
 <body>
 
 	<div class="form">
-		<h3>Registrati</h3>
-		<form method="POST" action="Inserimento">
-			<input placeholder="inserisci il nome" type="text" name="nome"
-				required="required"> <br>
-			<br> <input placeholder="inserisci il cognome" type="text"
-				name="cognome" required="required"> <br>
-			<br> <input type="date" name="datadinascita" required="required">
-			<br>
-			<br> <input placeholder="inserisci il codifce fiscale"
-				type="text" name="cf" required="required"> <br>
-			<br>
-			<button  class="formbtn" type="reset" onclick="Gestione">Cancella</button>
-			<button  class="formbtn" type="submit" onclick="ConfermaInserimento.jsp">Invia</button>
 
+		<c:if test="${val==null }">
+				<h3>Registrati</h3>
+			<form method="POST" action="Inserimento">
+		</c:if>
+		<c:if test="${val>0}">
+				<h3>Modifica i dati</h3>
+			<form method="POST" action="Modifica">
+		</c:if>
+
+		<input value="${persona.nome}" placeholder="inserisci il nome"
+			type="text" name="nome" required="required"> <br> <br>
+			<label id="errnome"> </label>
+		<input value="${persona.cognome}" placeholder="inserisci il cognome"
+			type="text" name="cognome" required="required"> <br> <br>
+			<label id="errcognome"> </label>
+		<input value="${persona.datadinascita}" type="date"
+			name="datadinascita" required="required"> <br> <br>
+			<label id="errdatadinascita"> </label>
+		<input value="${persona.cf}"
+			placeholder="inserisci il codifce fiscale" type="text" name="cf"
+			required="required"> <br> <br>
+			<label id="errcf"> </label>
+			<br>
+			<input value="${persona.cf}" type="hidden" name="cfold">
+		<button class="formbtn" type="reset" onclick="Gestione">Cancella</button>
+		<c:if test="${val==null }">
+			<button class="formbtn" type="submit"
+				onclick="ConfermaInserimento.jsp">Invia</button>
+		</c:if>
+		<c:if test="${val>0 }">
+			<button class="formbtn" type="submit" onclick="ConfermaModifica.jsp">Modifica</button>
+		</c:if>
+
+		<a class="back" href="Home.jsp"> Home</a>
 		</form>
 	</div>
 
@@ -39,11 +60,12 @@
 	<br>
 	<br>
 
-<div class="footer">
-<p>&copy;  Lara Misia Forlani</p>
-<a href="https://www.linkedin.com/in/lara-misia-forlani-3b4612234/" target="_blank">LinkedIn</a>
-<a href="https://github.com/la-rika" target="_blank">GitHub</a>
-</div>
+	<div class="footer">
+		<p>&copy; Lara Misia Forlani</p>
+		<a href="https://www.linkedin.com/in/lara-misia-forlani-3b4612234/"
+			target="_blank">LinkedIn</a> <a href="https://github.com/la-rika"
+			target="_blank">GitHub</a>
+	</div>
 
 </body>
 </html>

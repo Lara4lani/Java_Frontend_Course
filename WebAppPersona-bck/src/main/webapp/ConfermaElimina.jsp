@@ -7,7 +7,7 @@
  <link rel='stylesheet' type='text/css' media='screen' href='style.css'>
      <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
  
-<title>Insert title here</title>
+<title>Eliminazione Completata</title>
 </head>
 <body>
 

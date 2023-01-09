@@ -15,7 +15,7 @@
 
 </head>
 <body>
-
+<h5 id="titolo">${msg} ${persona.nome} ${persona.cognome}</h5>
 <h1>Gestione Utenti</h1>
 
 <!-- Invio richiesta di tipo GET  -->

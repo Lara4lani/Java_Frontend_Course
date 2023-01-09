@@ -32,15 +32,15 @@
 				<td>${list.cognome}</td>
 				<td>${list.datadinascita}</td>
 				<td>${list.cf}</td>
-	
 
-				<td><a href="Modifica?nome=${list.nome}&&cognome=${list.cognome}&&datadinascita=${list.datadinascita}&&cf=${list.cf}"><b>modifica</b></a></td>
-				<td><a class="del" href="Elimina?nome=${list.nome}&&cognome=${list.cognome}&&datadinascita=${list.datadinascita}&&cf=${list.cf}"><b>elimina</b> </a></td>
+				 <td><a href="Modifica?cf=${list.cf}"><b>modifica</b></a></td> 
+				<td><a class="del" href="Elimina?cf=${list.cf}"><b>elimina</b> </a></td>
 			</tr>
 
 		</c:forEach>
 	</table>
-
+	<br><br>
+			<a class="back" href="Home.jsp"> Home</a>
 
 <div class="footer">
 <p>&copy;  Lara Misia Forlani</p>

@@ -65,13 +65,19 @@ public class Inserimento extends HttpServlet {
 			e.printStackTrace();
 		}
 		p.setCf(cf);
+		System.out.println(p);
 		
-		
-		crud.inserimentoPersona(p);
-		
-		RequestDispatcher rd;
-		rd=request.getRequestDispatcher("ConfermaInserimento.jsp");
-		rd.forward(request, response);
+		if(crud.inserimentoPersona(p)>0)
+		{
+			
+			RequestDispatcher rd;
+			rd=request.getRequestDispatcher("ConfermaInserimento.jsp");
+			rd.forward(request, response);
+			
+		}
+		else
+			response.sendRedirect("Error.jsp");
 	}
+	
 
 }
