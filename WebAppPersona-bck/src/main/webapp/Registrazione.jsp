@@ -43,10 +43,10 @@
 			<label id="errcf"> </label>
 			<br>
 			<input value="${persona.cf}" type="hidden" name="cfold">
-		<button class="formbtn" type="reset" onclick="Gestione">Cancella</button>
+		<button class="formbtn" type="reset" >Cancella</button>
 		<c:if test="${val==null }">
 			<button class="formbtn" type="submit"
-				onclick="ConfermaInserimento.jsp">Invia</button>
+				>Invia</button>
 		</c:if>
 		<c:if test="${val>0 }">
 			<button class="formbtn" type="submit" onclick="ConfermaModifica.jsp">Modifica</button>
