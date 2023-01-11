@@ -52,8 +52,8 @@
 
 	<div class="pages">
 	<a href="Paginazione?offset=0">INIZIO</a> 
-	<a href="Paginazione?offset=${newoffset }">&#60;</a> <!-- succ -->
-	<a href="Paginazione?offset=5">&#62;</a> <!-- prec  -->
+	<a href="Paginazione?offset=${oldoffset}">&#60;</a> <!-- succ -->
+	<a href="Paginazione?offset=${newoffset}">&#62;</a> <!-- prec  -->
 	<a href="Paginazione?offset=">FINE</a> 
 	</div>
 	<br>

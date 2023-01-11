@@ -40,14 +40,17 @@ public class Paginazione extends HttpServlet {
 		
 		ArrayList<Persona> array=new ArrayList<Persona>();
 		Persona p;
-		String conv;
-		
+
 		int offset = (Integer.parseInt(request.getParameter("offset")));
+		
 		int newoffset = offset+=5;
 		int oldoffset = offset-=5;
+		
 		request.setAttribute("oldoffset", oldoffset);
 		request.setAttribute("newoffset", newoffset);
 		System.out.println(offset);
+		System.out.println(newoffset);
+		System.out.println(oldoffset);
 		ResultSet rs=crud.getPaginazione(offset);
 		try {
 		

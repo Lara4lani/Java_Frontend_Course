@@ -39,7 +39,7 @@ public class Gestione extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+/*
 		ArrayList<Persona> array=new ArrayList<Persona>();
 		Persona p;
 		ResultSet rs=crud.getPersone();
@@ -67,7 +67,7 @@ public class Gestione extends HttpServlet {
 		request.setAttribute("listapersone", array);
 		rd=request.getRequestDispatcher("Visualizza.jsp");
 		
-		rd.forward(request, response);
+		rd.forward(request, response);*/
 		
 	}
 

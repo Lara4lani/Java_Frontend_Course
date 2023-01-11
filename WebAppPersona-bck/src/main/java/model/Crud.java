@@ -14,9 +14,9 @@ public class Crud {
 		static final String DB_URL ="jdbc:mysql://localhost:3306/gestione_persona";
 		static final String UserDB ="root";
 		 //@NOTE--> dont delete MAMP 
-		// static final String PasswordDB ="root";
+		 static final String PasswordDB ="root";
 		// xampp
-		static final String PasswordDB =""; 
+		//static final String PasswordDB =""; 
 		
 		
 		private static Connection conn = null;
@@ -130,8 +130,8 @@ public class Crud {
 			return rs;
 		}*/
 		
-		public ResultSet getPaginazione(int s) {
-			String sql = "SELECT * FROM persone limit 5 offset "+s+";";
+		public ResultSet getPaginazione(int num) {
+			String sql = "SELECT * FROM persone limit 5 offset "+num+";";
 			PreparedStatement ps = null;
 			ResultSet rs = null;
 			try {
@@ -144,6 +144,24 @@ public class Crud {
 			}
 			return rs;
 		}
+		
+		
+		
+		public ResultSet contaPersone() {
+			String sql = "SELECT count(*) as total from persone;";
+			PreparedStatement ps = null;
+			ResultSet rs = null;
+			try {
+				ps = conn.prepareStatement(sql);
+				rs = ps.executeQuery();
+				
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			return rs;
+		}
+		
 		
 		
 	

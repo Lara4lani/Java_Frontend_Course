@@ -17,9 +17,9 @@
          <a href="Home.jsp">Home</a>
     </button>
     <br><br><br>
- 
-<button class="btn"><a  href="Gestione"> Elenco</a></button>
-
+ <div class="btn">
+<a href="Paginazione?offset=0"> Gestisci</a>
+</div>
    
    
 <div class="footer">
