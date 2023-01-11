@@ -90,9 +90,9 @@ public class Modifica extends HttpServlet {
 		String cfold=request.getParameter("cfold");
 		
 		Date datanascita= null;
-		SimpleDateFormat sdf= new SimpleDateFormat("yyyy-MM-dd");
+		SimpleDateFormat convertidata= new SimpleDateFormat("yyyy-MM-dd");
 		try {
-			datanascita=sdf.parse(datadinascita);
+			datanascita=convertidata.parse(datadinascita);
 		}catch(Exception e) {
 			System.out.println("");
 		}

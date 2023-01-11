@@ -20,7 +20,7 @@
 
 <!-- Invio richiesta di tipo GET  -->
 <div class="btn">
-<a href="Gestione"> Gestisci</a>
+<a href="Paginazione?offset=0"> Gestisci</a>
 </div>
 
 

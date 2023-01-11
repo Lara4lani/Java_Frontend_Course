@@ -57,7 +57,7 @@ public class Inserimento extends HttpServlet {
 		Persona p=new Persona();
 		p.setNome(nome);
 		p.setCognome(cognome);
-		SimpleDateFormat convertidata = new SimpleDateFormat("yyyy-mm-dd");
+		SimpleDateFormat convertidata = new SimpleDateFormat("yyyy-MM-dd");
 		try {
 			p.setDatadinascita(convertidata.parse(Data));
 		} catch (ParseException e) {

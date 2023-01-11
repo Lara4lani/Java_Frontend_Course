@@ -34,7 +34,7 @@
 		<input value="${persona.cognome}" placeholder="inserisci il cognome"
 			type="text" name="cognome" required="required"> <br> <br>
 			<label id="errcognome"> </label>
-		<input value="${persona.datadinascita}" type="date"
+		<input placeholder="yyyy-MM-dd"value="${persona.datadinascita}" type="date"
 			name="datadinascita" required="required"> <br> <br>
 			<label id="errdatadinascita"> </label>
 		<input value="${persona.cf}"
@@ -52,9 +52,13 @@
 			<button class="formbtn" type="submit" onclick="ConfermaModifica.jsp">Modifica</button>
 		</c:if>
 
-		<a class="back" href="Home.jsp"> Home</a>
 		</form>
+		
 	</div>
+	
+		<a class="back" href="Home.jsp"> Home</a>
+		<br>	
+		<a class="back" href="Paginazione"> Elenco</a>
 
 	<br>
 	<br>

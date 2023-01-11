@@ -2,7 +2,6 @@ package controller;
 
 import java.io.IOException;
 import java.sql.ResultSet;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
@@ -16,21 +15,19 @@ import javax.servlet.http.HttpServletResponse;
 import model.Crud;
 import model.Persona;
 
-
-
 /**
- * Servlet implementation class Gestione
+ * Servlet implementation class Paginazione
  */
-@WebServlet("/Gestione")
-public class Gestione extends HttpServlet {
+@WebServlet("/Paginazione")
+public class Paginazione extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-	
 	Crud crud = new Crud();
+	
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Gestione() {
+    public Paginazione() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -39,10 +36,19 @@ public class Gestione extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+		// TODO Auto-generated method stub
+		
 		ArrayList<Persona> array=new ArrayList<Persona>();
 		Persona p;
-		ResultSet rs=crud.getPersone();
+		String conv;
+		
+		int offset = (Integer.parseInt(request.getParameter("offset")));
+		int newoffset = offset+=5;
+		int oldoffset = offset-=5;
+		request.setAttribute("oldoffset", oldoffset);
+		request.setAttribute("newoffset", newoffset);
+		System.out.println(offset);
+		ResultSet rs=crud.getPaginazione(offset);
 		try {
 		
 			while (rs.next())

@@ -2,7 +2,7 @@
 	url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
 
 body {
-	margin: 10% auto;
+	margin: 5% auto;
 	width: 50%;
 	text-align: center;
 	background-color: #A0C3D2;
@@ -15,7 +15,7 @@ h1 {
 	font-weight: lighter;
 }
 
-.error{
+.error {
 	font-family: 'Raleway', sans-serif;
 	color: red;
 	font-size: 60px;
@@ -28,7 +28,7 @@ a.back {
 	font-family: 'Courier New', Courier, monospace;
 }
 
-a.back:hover{
+a.back:hover {
 	color: white;
 }
 /*HOME.HTML*/
@@ -136,6 +136,22 @@ td>a.del {
 
 tr:nth-child(even) {
 	background-color: #f2f2f2;
+}
+
+.pages > a {
+	border: 2px solid lightgrey;
+	font-family: 'Raleway', sans-serif;
+	color:  rgb(58, 81, 111);
+	padding:  0.5% 1%;
+	font-weight: bolder;
+	background-color: #f6f5f4;
+}
+
+
+
+.pages > a:hover{
+	cursor: pointer;
+	border-style: inset;
 }
 
 /*FOOTER*/
