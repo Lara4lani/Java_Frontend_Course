@@ -133,7 +133,7 @@ public class Crud {
 		
 		
 		public ResultSet getPaginazione(int num) {
-			String sql = "SELECT * FROM persone limit 5 offset "+num+";";
+			String sql = "SELECT * FROM persone order by cognome limit 5 offset "+num+";";
 			PreparedStatement ps = null;
 			ResultSet rs = null;
 			try {
