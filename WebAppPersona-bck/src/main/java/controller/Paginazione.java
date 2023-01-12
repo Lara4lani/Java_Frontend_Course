@@ -46,17 +46,24 @@ public class Paginazione extends HttpServlet {
 	
 		int newoffset ;
 		int oldoffset ;
+		int resto;
 		int tot = crud.contaPersone();	
-
-		int resto = tot%5;
-	
+		if(tot%5!=0)
+		{
+			resto = tot%5;
+			System.out.println(resto);
+		}else
+			resto =5;
+			System.out.println(resto);
+		
+		
 		int lastoffset = tot-resto;
 		System.out.println(lastoffset);
 		request.setAttribute("lastoffset", lastoffset);
 	
 		
 		//new offset block
-		if(offset<lastoffset) //funziona ma non e' dinamico quindi no
+		if(offset<lastoffset) 
 		{
 			newoffset = offset+5;
 		}
