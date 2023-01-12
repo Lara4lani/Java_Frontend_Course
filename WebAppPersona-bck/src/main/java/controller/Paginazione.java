@@ -2,6 +2,7 @@ package controller;
 
 import java.io.IOException;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
@@ -42,15 +43,39 @@ public class Paginazione extends HttpServlet {
 		Persona p;
 
 		int offset = (Integer.parseInt(request.getParameter("offset")));
+	
+		int newoffset ;
+		int oldoffset ;
+		int tot = crud.contaPersone();	
+
+		int resto = tot%5;
+	
+		int lastoffset = tot-resto;
+		System.out.println(lastoffset);
+		request.setAttribute("lastoffset", lastoffset);
+	
 		
-		int newoffset = offset+=5;
-		int oldoffset = offset-=5;
+		//new offset block
+		if(offset<lastoffset) //funziona ma non e' dinamico quindi no
+		{
+			newoffset = offset+5;
+		}
+		else
+			newoffset=offset;
+		
+		request.setAttribute("newoffset", newoffset);
+	
+		//old offset block
+		if(offset>0)
+		{
+			oldoffset = offset-5;
+		}
+		else
+			oldoffset = offset;
 		
 		request.setAttribute("oldoffset", oldoffset);
-		request.setAttribute("newoffset", newoffset);
-		System.out.println(offset);
-		System.out.println(newoffset);
-		System.out.println(oldoffset);
+	
+
 		ResultSet rs=crud.getPaginazione(offset);
 		try {
 		

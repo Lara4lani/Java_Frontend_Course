@@ -52,9 +52,10 @@
 
 	<div class="pages">
 	<a href="Paginazione?offset=0">INIZIO</a> 
-	<a href="Paginazione?offset=${oldoffset}">&#60;</a> <!-- succ -->
-	<a href="Paginazione?offset=${newoffset}">&#62;</a> <!-- prec  -->
-	<a href="Paginazione?offset=">FINE</a> 
+	
+	<a href="Paginazione?offset=${oldoffset}">&#60;</a>  <!-- prec  -->
+	<a href="Paginazione?offset=${newoffset}">&#62;</a> <!-- succ -->
+	<a href="Paginazione?offset=${lastoffset }">FINE</a> 
 	</div>
 	<br>
 		<a class="back" href="Home.jsp"> Home</a>
