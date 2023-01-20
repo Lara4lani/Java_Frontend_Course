@@ -17,9 +17,7 @@
          <a href="Home.jsp">Home</a>
     </button>
     <br><br><br>
- <div class="btn">
-<a href="Paginazione?offset=0"> Gestisci</a>
-</div>
+
    
    
 <div class="footer">
