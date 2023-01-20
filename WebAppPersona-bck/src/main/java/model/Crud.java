@@ -11,7 +11,7 @@ public class Crud {
 	
 	//JDBC driver and db url
 		static final String JDBC_DRIVER ="com.mysql.jdbc.Driver";
-		static final String DB_URL ="jdbc:mysql://localhost:3306/gestione_persona";
+		static final String DB_URL ="jdbc:mysql://localhost:3306/gestione_persone";
 		static final String UserDB ="root";
 		 //@NOTE--> dont delete MAMP 
 		 static final String PasswordDB ="root";
