@@ -1,7 +1,6 @@
 package model;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -14,12 +13,12 @@ public class Crud {
 		static final String DB_URL ="jdbc:mysql://localhost:3306/gestione_persone";
 		static final String UserDB ="root";
 		 //@NOTE--> dont delete MAMP 
-		 static final String PasswordDB ="root";
+		 //static final String PasswordDB ="root";
 		// xampp
-		//static final String PasswordDB =""; 
+		static final String PasswordDB =""; 
 		
 		
-		private static Connection conn = null;
+		private static Connection conn;
 		
 		
 		static {
